@@ -60,10 +60,10 @@ export default function Leaderboard({ scoresData }: LeaderboardProps) {
     useState<(keyof ModelData)[]>(allColumns);
   const [selectedModels, setSelectedModels] = useState<string[]>([
     "Llama-3.1-405B-Instruct",
-    "GPT-4o-0513",
-    "MiniCheck-InternLM2.5-7B",
+    "gpt-4o-2024-05-13",
+    "Mistral-Large 2",
     "Claude-3 Opus",
-    "Mixtral-8x22B",
+    "Bespoke-Minicheck-7B",
   ]);
   const [sortColumn, setSortColumn] = useState<NumericDataColumn>("Average");
   const [maxNumModelsOptions, setMaxNumModelsOptions] = useState<number>(3);

@@ -72,7 +72,7 @@ export default function Page() {
             evaluation.
           </p>
         </div>
-        <div className="rounded-lg px-2 p-1">
+        <div className="rounded-lg">
           <Accordion type="multiple" className="w-full">
             <AccordionItem value="key-feautres">
               <AccordionTrigger>
@@ -123,7 +123,7 @@ export default function Page() {
         </div>
       </div>
       <Leaderboard scoresData={scoresData}></Leaderboard>
-      <div className="rounded-lg px-2 p-1">
+      <div className="rounded-lg">
         <Accordion type="multiple" className="w-full">
           <AccordionItem value="prompt">
             <AccordionTrigger>
