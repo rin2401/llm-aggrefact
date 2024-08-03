@@ -398,7 +398,12 @@ const TableComponent: React.FC<TableComponentProps> = ({
       {sortedData.map((item, index) => (
         <TableRow key={index}>
           <TableCell>
-            <Link "" href={item.link}>{item.model}</Link>
+            <Link
+              className="text-primary hover:text-gray-400 transition-colors duration-200"
+              href={item.link}
+            >
+              {item.model}
+            </Link>
           </TableCell>
           <TableCell>{item.Size}</TableCell>
           <TableCell className="bg-accent text-accent-foreground">
