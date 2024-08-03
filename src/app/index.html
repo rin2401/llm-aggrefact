@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F5MVDYGXEV"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-F5MVDYGXEV');
+    </script>
+    <title>LLMAggreFact leaderboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css"> <!-- Local FontAwesome CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <h1>
+            LLM-AggreFact Leaderboard
+        </h1>
+        <hr><br>
+        <div class="intro">
+            <p><span class="aggrefact">LLM-AggreFact</span> is a fact-checking benchmark that aggregates <b>11</b> of the most up-to-date publicly available datasets on factual consistency (i.e., hallucination) evaluation. The benchmark covers both closed-book and grounded generation settings with 30K/29K dev/test data. Check out our <a href="https://arxiv.org/pdf/2404.10774" target="_blank"><i class="fas fa-file-alt"></i>paper</a> and <a href="https://github.com/Liyan06/MiniCheck/" target="_blank"><i class="fab fa-github"></i>GitHub repo</a> for more details.<br><br>
+            
+            <b>About the benchmark</b> (<a href="https://huggingface.co/datasets/lytang/LLM-AggreFact" target="_blank">available</a> on Hugging Face)
+             
+            <br>(1) <span class="aggrefact">LLM-AggreFact</span> is a sentence (or, claim) level evaluation benchmark. It contains examples of human annotated <u>(document, claim, label)</u> tuples. A fact-checking model is expected to predict whether the claim is supported/unsupported (binary) by the document.
+            <br>(2) Documents come from diverse sources, including Wikipedia paragraphs, interviews, and web text, covering domains such as news, dialogue, science, and healthcare;
+            <br>(3) Claims to be verified are mostly generated from recent generative models (except for one dataset of human-written claims), <u>without any human intervention in any format</u>, such as injecting certain error types into model-generated claims.<br><br>
+
+            <b>Evaluation Method</b>
+            <br>We evaluate the performance of fact-checking models using balanced accuracy, which takes label imbalance into account. Balanced accuracy ranges from 0 to 1, the higher the better, and majority class voting obtains a score of 50%.<br>
+            
+        </div>
+        
+
+        <div class="filter-container">
+                The leaderboard ranks models by their unweighted average performance on the test set of the benchmark.<br><br> 
+
+            <div class="checkbox-container">
+                <label class="filter-label">
+                    <input type="checkbox" id="all-models-checkbox"> <i class="fas fa-globe"></i> All Models
+                </label>
+                <label class="filter-label">
+                    <input type="checkbox" id="closed-source-checkbox"> <i class="fas fa-lock"></i> Proprietary Models
+                </label>
+                <label class="filter-label">
+                    <input type="checkbox" id="open-source-checkbox"> <i class="fas fa-lock-open"></i> Open-Source Models
+                </label>
+            </div>
+            <div class="filter-controls">
+                <select id="model-selection" class="model-selection" multiple="multiple">
+                    <!-- Options will be populated by JavaScript -->
+                </select>
+                <button onclick="clearFilters()" class="clear-button">clear all filters</button>
+            </div>
+            
+        </div>
+        
+        <table id="leaderboard" class="equal-width-columns">
+            <thead id="table-headers">
+                <tr>
+                    <th class="sortable" onclick="sortTable('Model')">Model<span class="sort-arrow" id="Model-arrow"></span></th>
+                    <th class="sortable">Size<span class="sort-arrow" id="Size-arrow"></span></th>
+                    <th class="sortable" onclick="sortTable('Average')">Average<span class="sort-arrow" id="Average-arrow"></span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be populated by JavaScript -->
+            </tbody>
+        </table>
+        
+        
+        <div class="caution-flag">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span class="aggrefact">LLM-AggreFact</span> is permitted for use as an evaluation benchmark. Data in the benchmark should not be used in pretraining or fine-tuning any NLP models.<br><br>
+
+            Our team commits to updating the leaderboard with new models. Please <a href="lytang@utexas.edu"><i class="fas fa-envelope"></i>contact us</a> if you want your model to appear on the leaderboard (API credits are certainly welcome!)
+        </div>               
+        <br>           
+
+        <div class="prompt">
+            <h2 class="prompt-header" onclick="togglePrompt('llm-zs-prompt')"><i class="fas fa-cogs"></i>&nbsp;&nbsp;&nbsp;&nbsp;Zero-Shot prompt for LLM Fact-Checking</h2> 
+            <pre id="llm-zs-prompt" class="robotic-text">
+Determine whether the provided claim is consistent with the corresponding document. Consistency in this context implies that all information presented in the claim is substantiated by the document. If not, it should be considered inconsistent.
+Document: [DOCUMENT]
+Claim: [CLAIM]
+Please assess the claim's consistency with the document by responding with either "yes" or "no". Answer:</pre>
+        </div>
+
+        <div class="team">
+            <h2 class="team-header" onclick="toggleTeam('team-section')"><i class="fas fa-users"></i>&nbsp;&nbsp;&nbsp;&nbsp;Team</h2>
+            <div id="team-section" class="team-section">
+                <div class="team-members-container">
+                    <div class="team-member">
+                        <a href="https://www.tangliyan.com" target="_blank">
+                            <img src="assets/Liyan.png" alt="Liyan Tang" class="team-img">
+                            <p>Liyan Tang</p>
+                        </a>
+                    </div>
+                    <div class="team-member">
+                        <a href="https://tingofurro.github.io" target="_blank">
+                            <img src="assets/phil20.jpeg" alt="Philippe Leban" class="team-img">
+                            <p>Philippe Leban</p>
+                        </a>
+                    </div>
+                    <div class="team-member">
+                        <a href="https://www.cs.utexas.edu/~gdurrett/" target="_blank">
+                            <img src="assets/greg.png" alt="Greg Durrett" class="team-img">
+                            <p>Greg Durrett</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="prompt">
+            <h2 class="prompt-header" onclick="toggleCitation('citation-section')"><i class="fa fa-quote-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;Citation</h2> 
+            <pre id="citation-section" class="robotic-text">
+@misc{tang2024minicheck,
+    title={MiniCheck: Efficient Fact-Checking of LLMs on Grounding Documents}, 
+    author={Liyan Tang and Philippe Laban and Greg Durrett},
+    year={2024},
+    eprint={2404.10774},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+}</pre>
+        </div>
+
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+         function toggleExample(id) {
+            const element = document.getElementById(id);
+            if (element.style.display === "none" || element.style.display === "") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+
+        function togglePrompt(id) {
+            var promptText = document.getElementById(id);
+            if (promptText.style.display === "none") {
+                promptText.style.display = "block";
+            } else {
+                promptText.style.display = "none";
+            }
+        }
+
+        function toggleTeam(id) {
+            var teamSection = document.getElementById(id);
+            if (teamSection.style.display === "none") {
+                teamSection.style.display = "block";
+            } else {
+                teamSection.style.display = "none";
+            }
+        }
+
+        function toggleCitation(id) {
+            var teamSection = document.getElementById(id);
+            if (teamSection.style.display === "none") {
+                teamSection.style.display = "block";
+            } else {
+                teamSection.style.display = "none";
+            }
+        }
+
+        function toggleClosedSource() {
+            const checkbox = document.getElementById('closed-source-checkbox');
+            const closedSourceModels = ["GPT-4o-mini-0718", "GPT-4o-0513", "GPT-4-Turbo-0125", "Claude-3-Opus", "Claude-3.5-Sonnet", "Gemini Pro 1.5", "Gemini Flash 1.5"];
+            if (checkbox.checked) {
+                $('#model-selection').val(closedSourceModels).trigger('change');
+            } else {
+                $('#model-selection').val(null).trigger('change');
+            }
+        }
+
+        // Initially hide the prompt texts and team section
+        document.getElementById('llm-zs-prompt').style.display = 'none';
+        document.getElementById('team-section').style.display = 'none';
+        document.getElementById('citation-section').style.display = 'none';
+    </script>
+</body>
+</html>
