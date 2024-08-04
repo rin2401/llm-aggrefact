@@ -74,7 +74,7 @@ export default function Page() {
         </div>
         <div className="rounded-lg">
           <Accordion type="multiple" className="w-full">
-            <AccordionItem value="key-feautres">
+            <AccordionItem value="key-features">
               <AccordionTrigger>
                 <h2>Key Features</h2>
               </AccordionTrigger>

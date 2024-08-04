@@ -24,7 +24,7 @@ import {
 
 export interface ModelData {
   model: string;
-  Size: string;
+  Size?: number;
   CNN: number;
   XSum: number;
   Media: number;
@@ -184,22 +184,32 @@ export default function Leaderboard({ scoresData }: LeaderboardProps) {
           />
         </div>
       </div>
-      <div className="border p-8 rounded-lg shadow mb-4">
-        <RadarChartComponent
-          chartData={chartData}
-          filteredData={filteredData}
-          colorPalette={colorPalette}
-          chartFontSize={chartFontSize}
-        />
-      </div>
-      <div className="mb-4">
-        <TableComponent
-          sortedData={sortedData}
-          selectedColumns={selectedColumns}
-          sortColumn={sortColumn}
-          requestSort={setSortColumn}
-        />
-      </div>
+      {selectedModels.length > 0 && selectedColumns.length > 0 ? (
+        <div className="border p-8 rounded-lg shadow mb-4">
+          <RadarChartComponent
+            chartData={chartData}
+            filteredData={filteredData}
+            colorPalette={colorPalette}
+            chartFontSize={chartFontSize}
+          />
+        </div>
+      ) : (
+        <div className="border p-2 rounded-lg shadow mb-4">
+          <p className="text-muted-foreground">
+            Please select a model or a column to display data.
+          </p>
+        </div>
+      )}
+      {selectedModels.length > 0 && (
+        <div className="mb-4">
+          <TableComponent
+            sortedData={sortedData}
+            selectedColumns={selectedColumns}
+            sortColumn={sortColumn}
+            requestSort={setSortColumn}
+          />
+        </div>
+      )}
     </div>
   );
 }
