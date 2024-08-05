@@ -371,19 +371,19 @@ const TableComponent: React.FC<TableComponentProps> = ({
   sortColumn,
   requestSort,
 }) => (
-  <Table>
+  <Table className="table-fixed">
     <TableHeader>
       <TableRow>
-        <TableHead>Model</TableHead>
-        <TableHead>Size</TableHead>
+        <TableHead className="w-20">Model</TableHead>
+        <TableHead className="w-14">Size</TableHead>
         <TableHead
-          className="bg-accent text-accent-foreground cursor-pointer"
+          className="bg-accent text-accent-foreground cursor-pointer w-20 break-words"
           onClick={() => requestSort("Average")}
         >
-          <div className="flex items-center justify-start">
+          <div className="whitespace-normal overflow-hidden break-words">
             <span>Average</span>
             {sortColumn === "Average" && (
-              <ArrowDown className="h-4 w-4 flex-shrink-0" />
+              <ArrowDown className="h-4 w-4 flex-shrink-0 inline" />
             )}
           </div>
         </TableHead>
@@ -392,12 +392,12 @@ const TableComponent: React.FC<TableComponentProps> = ({
           <TableHead
             key={column}
             onClick={() => requestSort(column as NumericDataColumn)}
-            className="cursor-pointer"
+            className="w-20 break-words"
           >
-            <div className="flex items-center justify-start">
+            <div className="whitespace-normal overflow-hidden break-words">
               <span>{column}</span>
               {sortColumn === column && (
-                <ArrowDown className="h-4 w-4 flex-shrink-0" />
+                <ArrowDown className="h-4 w-4 flex-shrink-0 inline" />
               )}
             </div>
           </TableHead>
