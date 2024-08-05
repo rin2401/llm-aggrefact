@@ -27,8 +27,8 @@ export interface ModelData {
   Size: string;
   CNN: number;
   XSum: number;
-  Media: number;
-  Meet: number;
+  MediaS: number;
+  MeetB: number;
   Wice: number;
   REVEAL: number;
   ClaimVerify: number;

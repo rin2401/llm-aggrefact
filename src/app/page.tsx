@@ -103,7 +103,7 @@ export default function Page() {
                     We evaluate the performance of fact-checking models using
                     balanced accuracy, which takes label imbalance into account.
                     Balanced accuracy ranges from 0 to 1, the higher the better,
-                    and a majority class b aseline obtains a score of 50%.
+                    and a majority class baseline obtains a score of 50%.
                   </li>
                 </ul>
               </AccordionContent>
