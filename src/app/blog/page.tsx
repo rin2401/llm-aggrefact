@@ -6,22 +6,24 @@ export default function Blog() {
           Introducing the LLM-AggreFact Benchmark ✅
         </h1>
         <div className="italic text-accented-foreground">
+          <br/>
           <p>
             How do LLMs do at detecting factual errors in LLM responses? Can an
             LLM be used to fact-check the output of another LLM? The
-            LLM-AggreFact dataset, introduced in our paper MiniCheck, tests this
+            LLM-AggreFact dataset, introduced in our paper <a href="https://arxiv.org/pdf/2404.10774" target="_blank" style={{color: 'blue'}}>MiniCheck</a>, tests this
             capability. This leaderboard tracks how well LLMs can fact-check
             LLM-generated content.
           </p>
+          <br/>
           <p>
             <span className="font-bold">✨NEW✨</span> results including
-            Llama-3.1B, Mistral 2, and a new model from Bespoke Labs (fine-tuned
+            Llama-3.1, Mistral 2, and a new model from <a href="http://www.bespokelabs.ai" target="_blank" style={{color: 'blue'}}>Bespoke Labs</a> (fine-tuned
             on a new version of the data from our MiniCheck paper generated with
             Llama-3.1).
           </p>
           <p>
-            <span className="font-bold">✨NEW✨</span> Demo of the Bespoke model
-            with real-time inference [link]
+            <span className="font-bold">✨NEW✨</span> <a href="http://playground.bespokelabs.ai" target="_blank" style={{color: 'blue'}}>Demo</a> of the Bespoke model
+            with real-time inference
           </p>
         </div>
       </div>
@@ -47,9 +49,9 @@ export default function Blog() {
 
           <p className="leading-loose">
             LLM-AggreFact draws together performance across 11 datasets, all
-            with the format: (&quot;D&quot;, c, y), where &quot;D&quot; is a
-            grounding document set, c is a claim, and y is a boolean label to
-            indicate whether c is supported by &quot;D&quot;.
+            with the format: (&quot;<i>D</i>&quot;, <i>c</i>, <i>y</i>), where &quot;<i>D</i>&quot; is a
+            grounding document set, <i>c</i> is a claim, and <i>y</i> is a boolean label to
+            indicate whether <i>c</i> is supported by &quot;<i>D</i>&quot;.
           </p>
 
           <p className="leading-loose">
@@ -57,7 +59,7 @@ export default function Blog() {
             prompted zero-shot with the document(s) and the claim, and asked if
             the claim is supported by the document(s). Second, models designed
             for related subtasks like textual entailment or question answering
-            (or multitasked models, like AlignScore) can be used to produce
+            (or multitasked models, like <a href="https://aclanthology.org/2023.acl-long.634.pdf" target="_blank" style={{color: 'blue'}}>AlignScore</a>) can be used to produce
             classification decisions. MiniCheck belongs to the second approach.
           </p>
         </div>
@@ -70,25 +72,25 @@ export default function Blog() {
             The datasets included are drawn from: <br />
             <ul className="list-disc pl-4">
               <li>
-                Summarization datasets (AggreFact, TofuEval, RAGTruth): datasets
+                Summarization datasets (<a href="https://aclanthology.org/2023.acl-long.650.pdf" target="_blank" style={{color: 'blue'}}>AggreFact</a>, <a href="https://aclanthology.org/2024.naacl-long.251.pdf" target="_blank" style={{color: 'blue'}}>TofuEval</a>, <a href="https://arxiv.org/abs/2401.00396" target="_blank" style={{color: 'blue'}}>RAGTruth</a>): datasets
                 of models trained or prompted for summarizing documents, meeting
                 transcripts, etc.
               </li>
               <li>
-                Retrieval-augmented generation datasets (ClaimVerify, LFQA,
-                ExpertQA, RAGTruth): datasets of models answering questions from
+                Retrieval-augmented generation datasets (<a href="https://aclanthology.org/2023.findings-emnlp.467.pdf" target="_blank" style={{color: 'blue'}}>ClaimVerify</a>, <a href="https://arxiv.org/pdf/2310.12150" target="_blank" style={{color: 'blue'}}>LFQA</a>,
+                <a href="https://aclanthology.org/2024.naacl-long.167.pdf" target="_blank" style={{color: 'blue'}}>ExpertQA</a>, <a href="https://arxiv.org/abs/2401.00396" target="_blank" style={{color: 'blue'}}>RAGTruth</a>): datasets of models answering questions from
                 retrieved documents.
               </li>
               <li>
-                Post-hoc grounding (ExpertQA, REVEAL, Factcheck-GPT): datasets
+                Post-hoc grounding (<a href="https://aclanthology.org/2024.naacl-long.167.pdf" target="_blank" style={{color: 'blue'}}>ExpertQA</a>, <a href="https://arxiv.org/pdf/2402.00559" target="_blank" style={{color: 'blue'}}>REVEAL</a>, <a href="https://arxiv.org/pdf/2311.09000" target="_blank" style={{color: 'blue'}}>Factcheck-GPT</a>): datasets
                 where models&apos; answers are generated &quot;closed
                 book&quot;, then verified against retrieved documents.
               </li>
             </ul>
           </div>
           <p className="leading-loose">
-            We have added RAGTruth to the benchmark since the release of the
-            original paper.{" "}
+            We have added <a href="https://arxiv.org/abs/2401.00396" target="_blank" style={{color: 'blue'}}>RAGTruth</a> to the benchmark since the release of the
+            original <a href="https://arxiv.org/pdf/2404.10774" target="_blank" style={{color: 'blue'}}>paper</a>.{" "}
           </p>
           <p className="leading-loose">
             All of these datasets are labeled for factuality by expert
@@ -139,23 +141,19 @@ export default function Blog() {
           </p>
           <p className="leading-loose">
             The MiniCheck models from the paper are state-of-the-art for their
-            size. The best performance on the leaderboard comes from a 7B model
-            that is a fine-tuned version of InternLM2.5. [GREG: not sure what we
+            size. The best performance on the leaderboard comes from a 7B model <a href="https://huggingface.co/bespokelabs/Bespoke-Minicheck-7B" target="_blank" style={{color: 'blue'}}>Bespoke-Minicheck-7B</a> that is a fine-tuned version of InternLM2.5. [GREG: not sure what we
             want to say here] This model was produced by Bespoke Labs. Compared
             to the MiniCheck models in the paper, this version was produced with
-            data generated by Llama-3.1-405B. It is the strongest open model
+            data generated by Llama-3.1-405B. Bespoke-Minicheck-7B is the strongest open fact-checking model
             available for commercial use.
           </p>
           <p className="leading-loose">
-            This model is available as a demo here [link]
+            This model is available as a demo <a href="http://playground.bespokelabs.ai/" target="_blank" style={{color: 'blue'}}>here</a>.
           </p>
         </div>
       </div>
 
       <div className="space-y-2">
-        <p className="leading-loose">
-          (More detail on cost is available in the MiniCheck paper.)
-        </p>
         <div className="space-y-2">
           <h2 className="font-bold text-2xl tracking-tight">
             Conclusion and Future Work
@@ -167,7 +165,7 @@ export default function Blog() {
             to it, please get in touch with us.
           </p>
           <p className="leading-loose">
-            <span className="text-bold">Caveats:</span> Systems on this
+            <b>Caveats:</b> Systems on this
             leaderboard are benchmarked in a zero-shot fashion. As this is a
             binary classification task, it is possible to tune the threshold for
             each dataset. We believe this should be explored in practice. The
@@ -179,7 +177,7 @@ export default function Blog() {
             but is not the only phenomenon referred to as such. A significant
             body of work is concerned with whether LLMs output the right answers
             about long-tail entities when prompted &quot;closed book&quot;,
-            e.g., FActScore and the recent WildHallucinations. This is not our
+            e.g., <a href="https://aclanthology.org/2023.emnlp-main.741.pdf" target="_blank" style={{color: 'blue'}}>FActScore</a> and the recent <a href="https://arxiv.org/pdf/2407.17468" target="_blank" style={{color: 'blue'}}>WildHallucinations</a>. This is not our
             focus.
           </p>
         </div>
@@ -188,7 +186,7 @@ export default function Blog() {
       <div className="italic space-y-2">
         Post by Greg Durrett, XYZ, XYZ. This leaderboard is maintained by Liyan
         Tang in collaboration with Bespoke Labs. Liyan Tang and Greg Durrett are
-        both affiliated with Bespoke Labs.
+        both affiliated with UT Austin and Bespoke Labs.
       </div>
     </div>
   );
