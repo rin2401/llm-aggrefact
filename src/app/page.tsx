@@ -76,47 +76,30 @@ export default function Page() {
           <Accordion type="multiple" className="w-full">
             <AccordionItem value="key-features">
               <AccordionTrigger>
-                <h2>Key Features</h2>
+                <h2>Benchmark Details</h2>
               </AccordionTrigger>
               <AccordionContent>
                 <ul className="list-decimal list-inside">
                   <li>
                     <span className="aggrefact">LLM-AggreFact</span> is a
-                    sentence (or, claim) level evaluation benchmark. It contains
+                    sentence-level evaluation benchmark. It contains
                     examples of human annotated <u>(document, claim, label)</u>{" "}
                     tuples. A fact-checking model is expected to predict whether
-                    the claim is supported/unsupported (binary) by the document.
+                    the sentence (which we call a claim) is supported/unsupported (binary) by the document.
                   </li>
                   <li>
-                    The benchmark covers both closed-book and grounded
-                    generation settings with 30K/29K dev/test data.
+                    The benchmark covers both closed-book generation where the facts are checked 
+                    post-hoc as well as document-grounded generation (RAG, summarization). Documents 
+                    come from diverse sources, including Wikipedia paragraphs, interviews, and web 
+                    text, covering domains such as news, dialogue, science, and healthcare. The claims 
+                    to be verified are mostly generated from recent generative models.
                   </li>
                   <li>
-                    Documents come from diverse sources, including Wikipedia
-                    paragraphs, interviews, and web text, covering domains such
-                    as news, dialogue, science, and healthcare.{" "}
-                  </li>
-                  <li>
-                    Claims to be verified are mostly generated from recent
-                    generative models (except for one dataset of human-written
-                    claims), <u>without any human intervention in any format</u>
-                    , such as injecting certain error types into model-generated
-                    claims.
+                    We evaluate the performance of fact-checking models using balanced accuracy, which takes 
+                    label imbalance into account. Balanced accuracy ranges from 0 to 1, the higher the better, 
+                    and a majority class b aseline obtains a score of 50%.
                   </li>
                 </ul>
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="eval-method">
-              <AccordionTrigger>
-                <h2>Evaluation Method</h2>
-              </AccordionTrigger>
-              <AccordionContent>
-                <p>
-                  We evaluate the performance of fact-checking models using
-                  balanced accuracy, which takes label imbalance into account.
-                  Balanced accuracy ranges from 0 to 1, the higher the better,
-                  and majority class voting obtains a score of 50%.
-                </p>
               </AccordionContent>
             </AccordionItem>
           </Accordion>
