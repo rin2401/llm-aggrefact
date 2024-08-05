@@ -13,7 +13,7 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <div className="flex flex-col xl:w-1/2 lg:w-3/4 mx-auto">
+    <div className="flex flex-col w-[800px] mx-auto">
       <div className="mx-4">
         <h1 className="md:text-3xl text-2xl font-bold tracking-tight">
           LLM-AggreFact Leaderboard
