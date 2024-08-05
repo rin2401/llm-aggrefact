@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Separator } from "@/components/ui/separator";
 import { Menu } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -54,12 +55,22 @@ export const NavBar = () => {
   return (
     <nav className="bg-background mx-auto bg-shadow sticky top-0 z-10 pt-4">
       <div className="flex md:justify-start justify-between items-center">
-        <div className="text-2xl px-4 font-bold text-primary">
-          <Link href="/">LLM-AggreFact</Link>
+        <div className="flex flex-row mx-4 items-center">
+          <div className="w-[20px] h-[20px] relative mr-1">
+            <Image
+              src="/site-logo.svg"
+              alt="Green checkmark for logo"
+              fill
+              className="object-contain"
+            />
+          </div>
+          <div className="flex text-2xl font-bold text-primary whitespace-nowrap">
+            <Link href="/">LLM-AggreFact</Link>
+          </div>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:block">
+        <div className="hidden md:block items-center">
           <NavigationMenu>
             <NavigationMenuList>
               {navItems.map((item) => (
@@ -74,7 +85,7 @@ export const NavBar = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div className="md:hidden">
+        <div className="md:hidden items-center">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <button className="p-2">

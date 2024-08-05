@@ -2,8 +2,8 @@ export default function Blog() {
   return (
     <div className="lg:w-[800px] mx-auto p-4 mb-8 space-y-8">
       <div>
-        <h1 className="font-bold text-3xl tracking-tight">
-          Introducing the LLM-AggreFact Benchmark
+        <h1 className="font-bold text-3xl tracking-tight pr-2">
+          Introducing the LLM-AggreFact Benchmark ✅
         </h1>
         <div className="italic text-accented-foreground">
           <p>
