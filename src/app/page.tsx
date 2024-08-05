@@ -82,21 +82,25 @@ export default function Page() {
                 <ul className="list-decimal list-inside">
                   <li>
                     <span className="aggrefact">LLM-AggreFact</span> is a
-                    sentence-level evaluation benchmark. It contains
-                    examples of human annotated <u>(document, claim, label)</u>{" "}
-                    tuples. A fact-checking model is expected to predict whether
-                    the sentence (which we call a claim) is supported/unsupported (binary) by the document.
+                    sentence-level evaluation benchmark. It contains examples of
+                    human annotated <u>(document, claim, label)</u> tuples. A
+                    fact-checking model is expected to predict whether the
+                    sentence (which we call a claim) is supported/unsupported
+                    (binary) by the document.
                   </li>
                   <li>
-                    The benchmark covers both closed-book generation where the facts are checked 
-                    post-hoc as well as document-grounded generation (RAG, summarization). Documents 
-                    come from diverse sources, including Wikipedia paragraphs, interviews, and web 
-                    text, covering domains such as news, dialogue, science, and healthcare. The claims 
-                    to be verified are mostly generated from recent generative models.
+                    The benchmark covers both closed-book generation where the
+                    facts are checked post-hoc as well as document-grounded
+                    generation (RAG, summarization). Documents come from diverse
+                    sources, including Wikipedia paragraphs, interviews, and web
+                    text, covering domains such as news, dialogue, science, and
+                    healthcare. The claims to be verified are mostly generated
+                    from recent generative models.
                   </li>
                   <li>
-                    We evaluate the performance of fact-checking models using balanced accuracy, which takes 
-                    label imbalance into account. Balanced accuracy ranges from 0 to 1, the higher the better, 
+                    We evaluate the performance of fact-checking models using
+                    balanced accuracy, which takes label imbalance into account.
+                    Balanced accuracy ranges from 0 to 1, the higher the better,
                     and a majority class b aseline obtains a score of 50%.
                   </li>
                 </ul>
@@ -108,20 +112,6 @@ export default function Page() {
       <Leaderboard scoresData={scoresData}></Leaderboard>
       <div className="rounded-lg">
         <Accordion type="multiple" className="w-full">
-          <AccordionItem value="prompt">
-            <AccordionTrigger>
-              <h2>Zero-shot Prompt for Evaluating LLM Fact-checking</h2>
-            </AccordionTrigger>
-            <AccordionContent>
-              <pre className="text-sm text-gray-600 font-mono whitespace-pre-wrap">
-                {`Determine whether the provided claim is consistent with the corresponding document. Consistency in this context implies that all information presented in the claim is substantiated by the document. If not, it should be considered inconsistent.
-Document: [DOCUMENT]
-Claim: [CLAIM]
-Please assess the claim's consistency with the document by responding with either "yes" or "no". Answer:`}
-              </pre>
-            </AccordionContent>
-          </AccordionItem>
-
           <AccordionItem value="author">
             <AccordionTrigger>
               <h2>Team</h2>
@@ -165,7 +155,7 @@ Please assess the claim's consistency with the document by responding with eithe
                     rel="noopener noreferrer"
                     className="text-center"
                   >
-                    <Image  
+                    <Image
                       src="/assets/greg.png"
                       alt="Greg Durrett"
                       className="w-32 h-32 rounded-full mb-2"
