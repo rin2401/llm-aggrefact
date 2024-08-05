@@ -31,11 +31,11 @@ export interface ModelData {
   MeetB: number;
   Wice: number;
   REVEAL: number;
-  ClaimVerify: number;
-  FactCheck: number;
-  ExpertQA: number;
+  "Claim Verify": number;
+  "Fact Check": number;
+  "Expert QA": number;
   LFQA: number;
-  RAGTruth: number;
+  "RAG Truth": number;
   link: string;
   color?: string;
   [key: string]: string | number | undefined;
