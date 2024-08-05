@@ -417,7 +417,7 @@ const TableComponent: React.FC<TableComponentProps> = ({
           </TableCell>
           <TableCell>{item.Size}</TableCell>
           <TableCell className="bg-accent text-accent-foreground">
-            {item.Average}
+            {(item.Average as number).toFixed(1)}
           </TableCell>
           {selectedColumns.map((column) => (
             <TableCell key={column}>
