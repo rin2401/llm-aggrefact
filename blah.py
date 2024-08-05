@@ -33,14 +33,11 @@ links = {
     'SummaC-CV': 'https://github.com/tingofurro/summac/',
     'T5-NLI-Mixed': 'https://huggingface.co/google/t5_xxl_true_nli_mixture',
     'DAE': 'https://github.com/tagoyal/factuality-datasets',
-    'QAFactEval': 'https://github.com/salesforce/QAFactEval',
     'SummaC-ZS': 'https://github.com/tingofurro/summac/',
     'AlignScore': 'https://github.com/yuh-zha/AlignScore',
     'MiniCheck-DeBERTa-L': 'https://huggingface.co/lytang/MiniCheck-DeBERTa-v3-Large',
     'MiniCheck-RoBERTa-L': 'https://huggingface.co/lytang/MiniCheck-RoBERTa-Large',
     'MiniCheck-Flan-T5-L': 'https://huggingface.co/lytang/MiniCheck-Flan-T5-Large',
-    'MiniCheck-InternLM2.5-7B': '',
-    'MiniCheck-Llama-3.1-8B': '',
 }
 
 # Read the original data
