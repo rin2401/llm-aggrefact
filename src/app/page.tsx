@@ -130,6 +130,9 @@ export default function Page() {
                     <Image
                       src="/assets/Liyan.png"
                       alt="Liyan Tang"
+                      width={128}
+                      height={128}
+                      quality={100}
                       className="w-32 h-32 rounded-full mb-2"
                     />
                     <p>Liyan Tang</p>
@@ -145,6 +148,9 @@ export default function Page() {
                     <Image
                       src="/assets/phil20.jpeg"
                       alt="Philippe Leban"
+                      width={128}
+                      height={128}
+                      quality={100}
                       className="w-32 h-32 rounded-full mb-2"
                     />
                     <p>Philippe Leban</p>
@@ -160,6 +166,9 @@ export default function Page() {
                     <Image
                       src="/assets/greg.png"
                       alt="Greg Durrett"
+                      width={128}
+                      height={128}
+                      quality={100}
                       className="w-32 h-32 rounded-full mb-2"
                     />
                     <p>Greg Durrett</p>
