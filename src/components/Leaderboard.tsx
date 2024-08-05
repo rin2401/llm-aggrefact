@@ -24,7 +24,7 @@ import {
 
 export interface ModelData {
   model: string;
-  Size?: number;
+  Size: string;
   CNN: number;
   XSum: number;
   Media: number;

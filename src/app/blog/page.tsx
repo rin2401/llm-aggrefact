@@ -1,27 +1,29 @@
 export default function Blog() {
   return (
     <div className="lg:w-[800px] mx-auto p-4 mb-8 space-y-8">
-      <h1 className="font-bold text-3xl tracking-tight">
-        Introducing the LLM-AggreFact Benchmark
-      </h1>
-      <div className="italic">
-        <p className="text-accented-foreground">
-          How do LLMs do at detecting factual errors in LLM responses? Can an
-          LLM be used to fact-check the output of another LLM? The LLM-AggreFact
-          dataset, introduced in our paper MiniCheck, tests this capability.
-          This leaderboard tracks how well LLMs can fact-check LLM-generated
-          content.
-        </p>
-        <p>
-          <span className="font-bold">✨NEW✨</span> results including
-          Llama-3.1B, Mistral 2, and a new model from Bespoke Labs (fine-tuned
-          on a new version of the data from our MiniCheck paper generated with
-          Llama-3.1).
-        </p>
-        <p>
-          <span className="font-bold">✨NEW✨</span> Demo of the Bespoke model
-          with real-time inference [link]
-        </p>
+      <div>
+        <h1 className="font-bold text-3xl tracking-tight">
+          Introducing the LLM-AggreFact Benchmark
+        </h1>
+        <div className="italic text-accented-foreground">
+          <p>
+            How do LLMs do at detecting factual errors in LLM responses? Can an
+            LLM be used to fact-check the output of another LLM? The
+            LLM-AggreFact dataset, introduced in our paper MiniCheck, tests this
+            capability. This leaderboard tracks how well LLMs can fact-check
+            LLM-generated content.
+          </p>
+          <p>
+            <span className="font-bold">✨NEW✨</span> results including
+            Llama-3.1B, Mistral 2, and a new model from Bespoke Labs (fine-tuned
+            on a new version of the data from our MiniCheck paper generated with
+            Llama-3.1).
+          </p>
+          <p>
+            <span className="font-bold">✨NEW✨</span> Demo of the Bespoke model
+            with real-time inference [link]
+          </p>
+        </div>
       </div>
       <div className="space-y-4">
         <h2 className="font-bold text-2xl tracking-tight">
@@ -29,12 +31,12 @@ export default function Blog() {
         </h2>
         <div className="space-y-2">
           <p className="leading-loose">
-            “Hallucination” is used to refer to many types of errors in LLM
-            responses. One key type of error is when a model fails to accurately
-            reflect information given in its context (aka grounding documents).
-            The MiniCheck paper calls this fact-checking on grounding documents.
-            That is, given a statement, is it supported by a collection of
-            grounding documents?
+            &quot;Hallucination&quot; is used to refer to many types of errors
+            in LLM responses. One key type of error is when a model fails to
+            accurately reflect information given in its context (aka grounding
+            documents). The MiniCheck paper calls this fact-checking on
+            grounding documents. That is, given a statement, is it supported by
+            a collection of grounding documents?
           </p>
 
           <p className="leading-loose">
@@ -45,9 +47,9 @@ export default function Blog() {
 
           <p className="leading-loose">
             LLM-AggreFact draws together performance across 11 datasets, all
-            with the format: ("{"D"}", c, y), where "{"D"}"" is a grounding
-            document set, c is a claim, and y is a boolean label to indicate
-            whether c is supported by "{"D"}".
+            with the format: (&quot;D&quot;, c, y), where &quot;D&quot; is a
+            grounding document set, c is a claim, and y is a boolean label to
+            indicate whether c is supported by &quot;D&quot;.
           </p>
 
           <p className="leading-loose">
@@ -64,7 +66,7 @@ export default function Blog() {
           <h2 className="font-bold text-2xl tracking-tight">
             Datasets included in LLM-AggreFact Benchmark
           </h2>
-          <p className="leading-loose">
+          <div className="leading-loose">
             The datasets included are drawn from: <br />
             <ul className="list-disc pl-4">
               <li>
@@ -79,11 +81,11 @@ export default function Blog() {
               </li>
               <li>
                 Post-hoc grounding (ExpertQA, REVEAL, Factcheck-GPT): datasets
-                where models’ answers are generated “closed book”, then verified
-                against retrieved documents.
+                where models' answers are generated &quot;closed book&quot;,
+                then verified against retrieved documents.
               </li>
             </ul>
-          </p>
+          </div>
           <p className="leading-loose">
             We have added RAGTruth to the benchmark since the release of the
             original paper.{" "}
@@ -105,7 +107,7 @@ export default function Blog() {
             Cost Considerations
           </h2>
           <p className="leading-loose">
-            We think it’s important for LLM fact-checkers to be small and cheap
+            We think it's important for LLM fact-checkers to be small and cheap
             to run. A response from an LLM might consist of many sentences. To
             identify and localize errors, a fact-checker needs to be called many
             times. If we use GPT-4 as the fact-checker, we can easily spend{" "}
@@ -176,8 +178,9 @@ export default function Blog() {
             Furthermore, note that this task involves detecting hallucinations,
             but is not the only phenomenon referred to as such. A significant
             body of work is concerned with whether LLMs output the right answers
-            about long-tail entities when prompted “closed book”, e.g.,
-            FActScore and the recent WildHallucinations. This is not our focus.
+            about long-tail entities when prompted &quot;closed book&quot;,
+            e.g., FActScore and the recent WildHallucinations. This is not our
+            focus.
           </p>
         </div>
       </div>

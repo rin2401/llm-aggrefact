@@ -1,3 +1,5 @@
+import { ModelData } from "@/components/Leaderboard";
+
 export const scoresData: ModelData[] = [
   {
     model: "Llama-3.1-405B-Instruct",
