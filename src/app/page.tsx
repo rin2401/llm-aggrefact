@@ -152,7 +152,7 @@ Please assess the claim's consistency with the document by responding with eithe
                     rel="noopener noreferrer"
                     className="text-center"
                   >
-                    <img
+                    <Image
                       src="/assets/Liyan.png"
                       alt="Liyan Tang"
                       className="w-32 h-32 rounded-full mb-2"
@@ -167,7 +167,7 @@ Please assess the claim's consistency with the document by responding with eithe
                     rel="noopener noreferrer"
                     className="text-center"
                   >
-                    <img
+                    <Image
                       src="/assets/phil20.jpeg"
                       alt="Philippe Leban"
                       className="w-32 h-32 rounded-full mb-2"
@@ -182,7 +182,7 @@ Please assess the claim's consistency with the document by responding with eithe
                     rel="noopener noreferrer"
                     className="text-center"
                   >
-                    <img
+                    <Image  
                       src="/assets/greg.png"
                       alt="Greg Durrett"
                       className="w-32 h-32 rounded-full mb-2"

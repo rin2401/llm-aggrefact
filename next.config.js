@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-  output: "export",
-  basePath: '/llm-aggrefact',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/llm-aggrefact' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/llm-aggrefact' : '',
 };

@@ -81,8 +81,8 @@ export default function Blog() {
               </li>
               <li>
                 Post-hoc grounding (ExpertQA, REVEAL, Factcheck-GPT): datasets
-                where models' answers are generated &quot;closed book&quot;,
-                then verified against retrieved documents.
+                where models&apos; answers are generated &quot;closed
+                book&quot;, then verified against retrieved documents.
               </li>
             </ul>
           </div>
@@ -107,12 +107,12 @@ export default function Blog() {
             Cost Considerations
           </h2>
           <p className="leading-loose">
-            We think it's important for LLM fact-checkers to be small and cheap
-            to run. A response from an LLM might consist of many sentences. To
-            identify and localize errors, a fact-checker needs to be called many
-            times. If we use GPT-4 as the fact-checker, we can easily spend{" "}
-            {">"}10x more to verify the response than we did to produce it in
-            the first place!
+            We think it&apos;s important for LLM fact-checkers to be small and
+            cheap to run. A response from an LLM might consist of many
+            sentences. To identify and localize errors, a fact-checker needs to
+            be called many times. If we use GPT-4 as the fact-checker, we can
+            easily spend {">"}10x more to verify the response than we did to
+            produce it in the first place!
           </p>
           <p className="leading-loose">
             The leaderboard also includes model size as a key factor. For most

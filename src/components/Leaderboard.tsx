@@ -71,7 +71,7 @@ export default function Leaderboard({ scoresData }: LeaderboardProps) {
 
   const filteredData = useMemo(
     () => scoresData.filter((item) => selectedModels.includes(item.model)),
-    [selectedModels]
+    [selectedModels, scoresData]
   );
 
   const dataWithAverages = useMemo<ModelData[]>(
@@ -105,7 +105,7 @@ export default function Leaderboard({ scoresData }: LeaderboardProps) {
       };
     });
     return ranges;
-  }, []);
+  }, [allColumns, scoresData]);
 
   const chartData = useMemo(
     () =>
