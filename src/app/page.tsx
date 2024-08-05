@@ -14,55 +14,57 @@ import Link from "next/link";
 export default function Page() {
   return (
     <div className="flex flex-col w-[800px] mx-auto">
-      <div className="mx-4">
-        <h1 className="md:text-3xl text-2xl font-bold tracking-tight">
-          LLM-AggreFact Leaderboard
-        </h1>
-        <div className="lg:mb-6 mb-2">
-          {" "}
-          <Link
-            href="https://github.com/Liyan06/MiniCheck/"
-            target="_blank"
-            className="inline-flex items-center custom-link text-sm"
-          >
-            GitHub
-            <FontAwesomeIcon
-              className="mx-1"
-              icon={faGithub}
-              width="15"
-              height="15"
-            />
-          </Link>
-          ,{" "}
-          <Link
-            href="https://arxiv.org/pdf/2404.10774"
-            target="_blank"
-            className="inline-flex items-center custom-link text-sm"
-          >
-            arXiv
-            <Image
-              src="/arxiv-logomark-small.svg"
-              className="mx-1"
-              alt="arxiv"
-              width="10"
-              height="10"
-            />
-          </Link>
-          ,{" "}
-          <Link
-            href="https://huggingface.co/datasets/lytang/LLM-AggreFact"
-            target="_blank"
-            className="inline-flex items-center custom-link text-sm"
-          >
-            HuggingFace
-            <Image
-              src="/hf.svg"
-              className="mx-1"
-              alt="hf"
-              width="25"
-              height="25"
-            />
-          </Link>
+      <div className="mx-4 justify-center">
+        <div className="flex flex-col items-center">
+          <h1 className="md:text-3xl text-2xl font-bold tracking-tight">
+            LLM-AggreFact Leaderboard
+          </h1>
+          <div className="lg:mb-6 mb-2">
+            {" "}
+            <Link
+              href="https://github.com/Liyan06/MiniCheck/"
+              target="_blank"
+              className="inline-flex items-center custom-link text-sm"
+            >
+              GitHub
+              <FontAwesomeIcon
+                className="mx-1"
+                icon={faGithub}
+                width="15"
+                height="15"
+              />
+            </Link>
+            ,{" "}
+            <Link
+              href="https://arxiv.org/pdf/2404.10774"
+              target="_blank"
+              className="inline-flex items-center custom-link text-sm"
+            >
+              arXiv
+              <Image
+                src="/arxiv-logomark-small.svg"
+                className="mx-1"
+                alt="arxiv"
+                width="10"
+                height="10"
+              />
+            </Link>
+            ,{" "}
+            <Link
+              href="https://huggingface.co/datasets/lytang/LLM-AggreFact"
+              target="_blank"
+              className="inline-flex items-center custom-link text-sm"
+            >
+              HuggingFace
+              <Image
+                src="/hf.svg"
+                className="mx-1"
+                alt="hf"
+                width="25"
+                height="25"
+              />
+            </Link>
+          </div>
         </div>
         <div className="mb-2">
           <p className="leading-normal">
