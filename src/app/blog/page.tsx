@@ -1,6 +1,16 @@
 export default function Blog() {
   return (
     <div className="lg:w-[800px] mx-auto p-4 mb-8 space-y-8">
+
+      <div className="mb-8">
+        <figure>
+          <img 
+            src="/assets/robot-figure.png" 
+            className="w-full h-auto"
+          />
+        </figure>
+      </div>
+
       <div>
         <h1 className="font-bold text-3xl tracking-tight pr-2">
           Introducing the LLM-AggreFact Benchmark ✅
