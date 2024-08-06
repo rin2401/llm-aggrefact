@@ -17,6 +17,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useMediaQuery, useTheme } from "@mui/material";
+import * as ScrollArea from "@radix-ui/react-scroll-area";
 import { ArrowDown } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useMemo, useState } from "react";
@@ -200,7 +201,7 @@ export default function Leaderboard({ scoresData }: LeaderboardProps) {
       </div>
       {selectedModels.length > 0 && selectedColumns.length > 0 ? (
         <Card className="mb-4 rounded-lg shadow-0">
-          <CardHeader className="flex  flex-row items-stretch space-y-0 border-b p-0 mb-6">
+          <CardHeader className="flex  flex-row items-stretch space-y-0 border-b p-0">
             <div className="flex flex-1 flex-col justify-center gap-1 px-6 py-5 sm:py-6 border-r">
               <CardTitle className="text-lg sm:text-xl">
                 Model Comparison
@@ -340,7 +341,7 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
       <ResponsiveContainer
         width="100%"
         height="100%"
-        className="flex-grow sm:min-h-[400px] sm:min-w-[400px] sm:w-full sm:h-full min-h-[200px] min-w-[200px] items-center"
+        className="flex-grow sm:min-h-[400px] sm:min-w-[400px] sm:w-full sm:h-full min-h-[250px] min-w-[250px] items-center p-0"
       >
         <RadarChart data={chartData}>
           <PolarGrid />
@@ -364,24 +365,33 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
           ))}
         </RadarChart>
       </ResponsiveContainer>
-      <div className="flex items-center mt-4 lg:mt-0 lg:ml-4 overflow-x-auto lg:overflow-x-visible lg:overflow-y-auto lg:max-h-[400px] max-h-[100px] lg:min-w-[200px]">
-        <div className="flex flex-col">
-          {filteredData.map((item, index) => (
-            <div
-              key={item.model}
-              className="flex items-center mb-2 mr-4 lg:mr-0 flex-shrink-0"
-            >
+      <ScrollArea.Root className="flex mt-4">
+        <ScrollArea.Viewport className="lg:mt-0 lg:ml-4 lg:max-h-[380px] max-h-[100px] lg:min-w-[200px] w-full items-center">
+          <div className="flex flex-col p-0">
+            {filteredData.map((item, index) => (
               <div
-                className="w-3 h-3 mr-2 rounded-full"
-                style={{
-                  backgroundColor: getColor(item, index),
-                }}
-              />
-              <span className="text-sm whitespace-nowrap">{item.model}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+                key={item.model}
+                className="flex items-center mb-2 mr-4 lg:mr-0 flex-shrink-0"
+              >
+                <div
+                  className="w-3 h-3 mr-2 rounded-full"
+                  style={{
+                    backgroundColor: getColor(item, index),
+                  }}
+                />
+                <span className="text-sm">{item.model}</span>
+              </div>
+            ))}
+          </div>
+        </ScrollArea.Viewport>
+        <ScrollArea.Scrollbar
+          orientation="vertical"
+          className="h-full w-2.5 border-l border-l-transparent"
+        >
+          <ScrollArea.Thumb className="relative flex-1 rounded-full bg-border" />
+        </ScrollArea.Scrollbar>
+        <ScrollArea.Corner />
+      </ScrollArea.Root>
     </div>
   );
 };
