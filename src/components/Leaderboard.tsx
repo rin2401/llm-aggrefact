@@ -153,7 +153,7 @@ export default function Leaderboard({ scoresData }: LeaderboardProps) {
     if (isXl) {
       setChartFontSize("15px");
       setMaxNumModelsOptions(1);
-      setMaxNumColumnsOptions(2);
+      setMaxNumColumnsOptions(1);
     } else if (isLg) {
       setChartFontSize("12px");
       setMaxNumModelsOptions(1);
