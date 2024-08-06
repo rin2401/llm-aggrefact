@@ -137,7 +137,7 @@ export default function Page() {
                     Liyan Tang
                   </Link>
                   <p className="text-muted-foreground text-center">
-                    UT Austin, BespokeLabs
+                    UT Austin, Bespoke Labs
                   </p>
                 </div>
 
@@ -179,7 +179,7 @@ export default function Page() {
                     Greg Durrett
                   </Link>
                   <p className="text-muted-foreground text-center">
-                    UT Austin, BespokeLabs
+                    UT Austin, Bespoke Labs
                   </p>
                 </div>
 
@@ -200,7 +200,7 @@ export default function Page() {
                     Trung Vu
                   </Link>
                   <p className="text-muted-foreground text-center">
-                    BespokeLabs
+                    Bespoke Labs
                   </p>
                 </div>
               </div>
