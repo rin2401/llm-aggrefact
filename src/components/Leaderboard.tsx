@@ -408,7 +408,7 @@ const TableComponent: React.FC<TableComponentProps> = ({
           className="bg-accent text-accent-foreground cursor-pointer w-20 break-words"
           onClick={() => requestSort("Average")}
         >
-          <div className="whitespace-normal overflow-hidden break-words">
+          <div className="whitespace-normal overflow-hidden break-words text-center">
             <span>Average</span>
             {sortColumn === "Average" && (
               <ArrowDown className="h-4 w-4 flex-shrink-0 inline" />
@@ -449,7 +449,7 @@ const TableComponent: React.FC<TableComponentProps> = ({
             </Link>
           </TableCell>
           <TableCell>{item.Size}</TableCell>
-          <TableCell className="bg-accent text-accent-foreground">
+          <TableCell className="bg-accent text-center text-accent-foreground">
             {(item.Average as number).toFixed(1)}
           </TableCell>
           {selectedColumns.map((column) => (
