@@ -340,7 +340,7 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
       <ResponsiveContainer
         width="100%"
         height="100%"
-        className="sm:min-h-[300px] sm:min-w-[300px] min-h-[200px] min-w-[200px]"
+        className="flex-grow sm:min-h-[500px] sm:min-w-[500px] sm:w-full sm:h-full min-h-[200px] min-w-[200px]"
       >
         <RadarChart data={chartData}>
           <PolarGrid />
@@ -364,7 +364,7 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
           ))}
         </RadarChart>
       </ResponsiveContainer>
-      <div className="mt-4 lg:mt-0 lg:ml-4 overflow-x-auto lg:overflow-x-visible lg:overflow-y-auto lg:max-h-[100%] max-h-[100px] lg:min-w-[200px]">
+      <div className="flex items-center mt-4 lg:mt-0 lg:ml-4 overflow-x-auto lg:overflow-x-visible lg:overflow-y-auto lg:max-h-[100%] max-h-[100px] lg:min-w-[200px]">
         <div className="flex flex-col">
           {filteredData.map((item, index) => (
             <div
