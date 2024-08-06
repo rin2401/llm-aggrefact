@@ -367,7 +367,24 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
               dataKey={item.model}
               stroke={getColor(item, index)}
               fill={getColor(item, index)}
-              fillOpacity={hoveredModel === null || hoveredModel === item.model ? 0.4 : 0}
+              fillOpacity={
+                hoveredModel === null
+                  ? 0.4
+                  : hoveredModel === item.model
+                  ? 0.6  // Increased opacity for hovered model
+                  : 0.1
+              }
+              strokeOpacity={
+                hoveredModel === null
+                  ? 1
+                  : hoveredModel === item.model
+                  ? 1
+                  : 0
+              }
+              strokeWidth={hoveredModel === item.model ? 3 : 1} // Thicker line for hovered model
+              style={{
+                filter: hoveredModel === item.model ? 'drop-shadow(0 0 2px rgba(0,0,0,0.5))' : 'none' // Add shadow for more emphasis
+              }}
             />
           ))}
         </RadarChart>
