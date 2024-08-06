@@ -137,7 +137,7 @@ export default function Page() {
                     Liyan Tang
                   </Link>
                   <p className="text-muted-foreground text-center">
-                    Paper Author, Leaderboard Maintainer
+                    UT Austin, BespokeLabs
                   </p>
                 </div>
 
@@ -157,9 +157,7 @@ export default function Page() {
                   >
                     Philippe Leban
                   </Link>
-                  <p className="text-muted-foreground text-center">
-                    Paper Author
-                  </p>
+                  <p className="text-muted-foreground text-center">?</p>
                 </div>
 
                 <div className="flex flex-col items-center">
@@ -179,7 +177,7 @@ export default function Page() {
                     Greg Durrett
                   </Link>
                   <p className="text-muted-foreground text-center">
-                    Paper Author
+                    UT Austin, BespokeLabs
                   </p>
                 </div>
 
@@ -200,7 +198,7 @@ export default function Page() {
                     Trung Vu
                   </Link>
                   <p className="text-muted-foreground text-center">
-                    Leaderboard Maintainer
+                    BespokeLabs
                   </p>
                 </div>
               </div>
