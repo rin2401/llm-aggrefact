@@ -441,6 +441,7 @@ const TableComponent: React.FC<TableComponentProps> = ({
         <TableRow key={index}>
           <TableCell>
             <Link
+              target="_blank"
               className="text-primary hover:text-gray-400 transition-colors duration-200"
               href={item.link}
             >
