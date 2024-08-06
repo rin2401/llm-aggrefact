@@ -412,7 +412,7 @@ const TableComponent: React.FC<TableComponentProps> = ({
   <Table className="table-fixed">
     <TableHeader>
       <TableRow>
-        <TableHead className="w-32">Model</TableHead>
+        <TableHead className="w-32 px-2">Model</TableHead>
         <TableHead className="w-14 text-center">Size</TableHead>
         <TableHead
           className="bg-accent text-accent-foreground cursor-pointer w-14 break-words"
