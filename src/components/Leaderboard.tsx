@@ -337,40 +337,34 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
 
   return (
     <div className="w-full h-full flex flex-col lg:flex-row lg:items-stretch items-center">
-      <div className="flex-grow">
-        <ResponsiveContainer
-          width="100%"
-          height="100%"
-          minHeight={300}
-          minWidth={300}
-        >
-          <RadarChart data={chartData} width={300} height={300}>
-            <PolarGrid />
-            <PolarAngleAxis
-              dataKey="column"
-              tick={{ fontSize: chartFontSize }}
+      <ResponsiveContainer
+        width="100%"
+        height="100%"
+        className="sm:min-h-[300px] sm:min-w-[300px] min-h-[200px] min-w-[200px]"
+      >
+        <RadarChart data={chartData}>
+          <PolarGrid />
+          <PolarAngleAxis dataKey="column" tick={{ fontSize: chartFontSize }} />
+          <PolarRadiusAxis
+            domain={[0, 100]}
+            tickCount={10}
+            tickLine={false}
+            axisLine={false}
+            tick={false}
+          />
+          {filteredData.map((item, index) => (
+            <Radar
+              key={item.model}
+              name={item.model}
+              dataKey={item.model}
+              stroke={getColor(item, index)}
+              fill={getColor(item, index)}
+              fillOpacity={0.4}
             />
-            <PolarRadiusAxis
-              domain={[0, 100]}
-              tickCount={10}
-              tickLine={false}
-              axisLine={false}
-              tick={false}
-            />
-            {filteredData.map((item, index) => (
-              <Radar
-                key={item.model}
-                name={item.model}
-                dataKey={item.model}
-                stroke={getColor(item, index)}
-                fill={getColor(item, index)}
-                fillOpacity={0.4}
-              />
-            ))}
-          </RadarChart>
-        </ResponsiveContainer>
-      </div>
-      <div className="mt-4 lg:mt-0 lg:ml-4 overflow-x-auto lg:overflow-x-visible lg:overflow-y-auto lg:max-h-[100%] max-h-[100px]">
+          ))}
+        </RadarChart>
+      </ResponsiveContainer>
+      <div className="mt-4 lg:mt-0 lg:ml-4 overflow-x-auto lg:overflow-x-visible lg:overflow-y-auto lg:max-h-[100%] max-h-[100px] lg:min-w-[200px]">
         <div className="flex flex-col">
           {filteredData.map((item, index) => (
             <div
