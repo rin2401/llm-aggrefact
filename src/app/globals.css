@@ -75,7 +75,7 @@ main {
 
 @layer components {
   .custom-link {
-    @apply text-primary underline hover:text-gray-400 transition-colors duration-200;
+    @apply text-rose-700  hover:text-rose-300 transition-colors duration-200;
   }
 }
 

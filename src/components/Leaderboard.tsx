@@ -452,7 +452,7 @@ const TableComponent: React.FC<TableComponentProps> = ({
           <TableCell>
             <Link
               target="_blank"
-              className="text-primary hover:text-gray-400 transition-colors duration-200"
+              className="text-primary custom-link transition-colors duration-200"
               href={item.link}
             >
               {item.model}
