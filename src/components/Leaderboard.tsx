@@ -38,15 +38,22 @@ export interface ModelData {
   MeetB: number;
   Wice: number;
   REVEAL: number;
-  "Claim Verify": number;
-  "Fact Check": number;
-  "Expert QA": number;
+  ClaimVerify: number;
+  FactCheck: number;
+  ExpertQA: number;
   LFQA: number;
-  "RAG Truth": number;
+  RAGTruth: number;
   link: string;
   color?: string;
   [key: string]: string | number | undefined;
 }
+
+const columnToPrettyName: { [key: string]: string } = {
+  ClaimVerify: "Claim Verify",
+  FactCheck: "Fact Check",
+  ExpertQA: "Expert QA",
+  RAGTruth: "RAG Truth",
+};
 
 interface LeaderboardProps {
   scoresData: ModelData[];
@@ -419,10 +426,14 @@ const TableComponent: React.FC<TableComponentProps> = ({
           <TableHead
             key={column}
             onClick={() => requestSort(column as NumericDataColumn)}
-            className="w-20 break-words"
+            className="w-20 break-words text-center"
           >
             <div className="whitespace-normal overflow-hidden break-words">
-              <span>{column}</span>
+              <span>
+                {column in columnToPrettyName
+                  ? columnToPrettyName[column as string]
+                  : column}
+              </span>
               {sortColumn === column && (
                 <ArrowDown className="h-4 w-4 flex-shrink-0 inline" />
               )}
@@ -447,7 +458,7 @@ const TableComponent: React.FC<TableComponentProps> = ({
             {(item.Average as number).toFixed(1)}
           </TableCell>
           {selectedColumns.map((column) => (
-            <TableCell key={column}>
+            <TableCell className="text-center" key={column}>
               {isNumber(item[column])
                 ? (item[column] as number).toFixed(1)
                 : item[column]}
