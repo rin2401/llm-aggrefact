@@ -114,67 +114,96 @@ export default function Page() {
       <Leaderboard scoresData={scoresData}></Leaderboard>
       <div className="rounded-lg">
         <Accordion type="multiple" className="w-full">
-          <AccordionItem value="author">
+          <AccordionItem value="author" className="flex-shrink">
             <AccordionTrigger>
               <h2>Team</h2>
             </AccordionTrigger>
             <AccordionContent>
-              <div className="flex flex-row items-center space-x-4">
+              <div className="grid grid-cols-4 auto-rows-auto gap-x-4 gap-y-8">
                 <div className="flex flex-col items-center">
-                  <a
+                  <Image
+                    src="/assets/Liyan.png"
+                    alt="Liyan Tang"
+                    width={128}
+                    height={128}
+                    quality={100}
+                    className="w-32 h-32 rounded-full mb-2"
+                  />
+                  <Link
                     href="https://www.tangliyan.com"
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-center"
+                    className="mb-1 custom-link"
                   >
-                    <Image
-                      src="/assets/Liyan.png"
-                      alt="Liyan Tang"
-                      width={128}
-                      height={128}
-                      quality={100}
-                      className="w-32 h-32 rounded-full mb-2"
-                    />
-                    <p>Liyan Tang</p>
-                  </a>
+                    Liyan Tang
+                  </Link>
+                  <p className="text-muted-foreground text-center">
+                    Paper Author, Leaderboard Maintainer
+                  </p>
                 </div>
+
                 <div className="flex flex-col items-center">
-                  <a
+                  <Image
+                    src="/assets/phil20.jpeg"
+                    alt="Philippe Leban"
+                    width={128}
+                    height={128}
+                    quality={100}
+                    className="w-32 h-32 rounded-full mb-2"
+                  />
+                  <Link
                     href="https://tingofurro.github.io"
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-center"
+                    className="mb-1 custom-link"
                   >
-                    <Image
-                      src="/assets/phil20.jpeg"
-                      alt="Philippe Leban"
-                      width={128}
-                      height={128}
-                      quality={100}
-                      className="w-32 h-32 rounded-full mb-2"
-                    />
-                    <p>Philippe Leban</p>
-                  </a>
+                    Philippe Leban
+                  </Link>
+                  <p className="text-muted-foreground text-center">
+                    Paper Author
+                  </p>
                 </div>
+
                 <div className="flex flex-col items-center">
-                  <a
-                    href="https://www.cs.utexas.edu/~gdurrett/"
+                  <Image
+                    src="/assets/greg.png"
+                    alt="Greg Durrett"
+                    width={128}
+                    height={128}
+                    quality={100}
+                    className="w-32 h-32 rounded-full mb-2"
+                  />
+                  <Link
+                    href="https://www.cs.utexas.edu/~gdurrett"
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-center"
+                    className="mb-1 custom-link"
                   >
-                    <Image
-                      src="/assets/greg.png"
-                      alt="Greg Durrett"
-                      width={128}
-                      height={128}
-                      quality={100}
-                      className="w-32 h-32 rounded-full mb-2"
-                    />
-                    <p>Greg Durrett</p>
-                  </a>
+                    Greg Durrett
+                  </Link>
+                  <p className="text-muted-foreground text-center">
+                    Paper Author
+                  </p>
                 </div>
-              </div>{" "}
+
+                <div className="flex flex-col items-center">
+                  <Image
+                    src="/assets/trung.JPG"
+                    alt="Trung Vu"
+                    width={128}
+                    height={128}
+                    quality={100}
+                    className="w-32 h-32 rounded-full mb-2"
+                  />
+                  <Link
+                    href="https://x.com/trungthvu"
+                    target="_blank"
+                    className="mb-1 custom-link"
+                  >
+                    Trung Vu
+                  </Link>
+                  <p className="text-muted-foreground text-center">
+                    Leaderboard Maintainer
+                  </p>
+                </div>
+              </div>
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="citaiton">
