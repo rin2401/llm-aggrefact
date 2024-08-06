@@ -403,9 +403,9 @@ const TableComponent: React.FC<TableComponentProps> = ({
     <TableHeader>
       <TableRow>
         <TableHead className="w-20">Model</TableHead>
-        <TableHead className="w-14">Size</TableHead>
+        <TableHead className="w-14 text-center">Size</TableHead>
         <TableHead
-          className="bg-accent text-accent-foreground cursor-pointer w-20 break-words"
+          className="bg-accent text-accent-foreground cursor-pointer w-14 break-words"
           onClick={() => requestSort("Average")}
         >
           <div className="whitespace-normal overflow-hidden break-words text-center">
@@ -420,7 +420,7 @@ const TableComponent: React.FC<TableComponentProps> = ({
           <TableHead
             key={column}
             onClick={() => requestSort(column as NumericDataColumn)}
-            className="w-20 break-words text-center"
+            className="w-14 break-words text-center"
           >
             <div className="whitespace-normal overflow-hidden break-words">
               <span>
@@ -448,7 +448,7 @@ const TableComponent: React.FC<TableComponentProps> = ({
               {item.model}
             </Link>
           </TableCell>
-          <TableCell>{item.Size}</TableCell>
+          <TableCell className="text-center">{item.Size}</TableCell>
           <TableCell className="bg-accent text-center text-accent-foreground">
             {(item.Average as number).toFixed(1)}
           </TableCell>
