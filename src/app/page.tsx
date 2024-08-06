@@ -157,7 +157,9 @@ export default function Page() {
                   >
                     Philippe Leban
                   </Link>
-                  <p className="text-muted-foreground text-center">?</p>
+                  <p className="text-muted-foreground text-center">
+                    Salesforce AI Research
+                  </p>
                 </div>
 
                 <div className="flex flex-col items-center">
