@@ -50,6 +50,15 @@ export default function Blog() {
             a collection of grounding documents?
           </p>
 
+          <div className="my-8 flex justify-center">
+            <figure className="w-2/3 max-w-md">
+              <img 
+                src="/assets/types.png" 
+                className="w-full h-auto"
+              />
+            </figure>
+          </div>
+
           <p className="leading-normal">
             This is a very fundamental capability across a number of tasks,
             including retrieval-augmented generation (RAG) and related problems
