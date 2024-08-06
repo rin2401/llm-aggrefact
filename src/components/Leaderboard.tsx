@@ -1,5 +1,12 @@
 "use client";
 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { MultiSelect } from "@/components/ui/multi-select";
 import {
   Table,
@@ -185,16 +192,36 @@ export default function Leaderboard({ scoresData }: LeaderboardProps) {
         </div>
       </div>
       {selectedModels.length > 0 && selectedColumns.length > 0 ? (
-        <div className="border p-8 rounded-lg shadow mb-4">
-          <RadarChartComponent
-            chartData={chartData}
-            filteredData={filteredData}
-            colorPalette={colorPalette}
-            chartFontSize={chartFontSize}
-          />
-        </div>
+        <Card className="mb-4 rounded-lg shadow-0">
+          <CardHeader className="flex  flex-row items-stretch space-y-0 border-b p-0 mb-6">
+            <div className="flex flex-1 flex-col justify-center gap-1 px-6 py-5 sm:py-6 border-r">
+              <CardTitle className="text-lg sm:text-xl">
+                Model Comparison
+              </CardTitle>
+              <CardDescription className="sm:text-sm text-xs">
+                Compare model performance across different datasets.
+              </CardDescription>
+            </div>
+            <div className="flex flex-col items-center justify-center sm:px-6 sm:py-4 px-3 py-2">
+              <h2 className="font-bold text-accented tracking-tight sm:text-xl text-lg">
+                {selectedModels.length} / {modelOptions.length}{" "}
+              </h2>
+              <span className="text-muted-foreground sm:text-sm text-xs text-center">
+                selected / available models
+              </span>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <RadarChartComponent
+              chartData={chartData}
+              filteredData={filteredData}
+              colorPalette={colorPalette}
+              chartFontSize={chartFontSize}
+            />
+          </CardContent>
+        </Card>
       ) : (
-        <div className="border p-2 rounded-lg shadow mb-4">
+        <div className="border p-2 shadow mb-4">
           <p className="text-muted-foreground">
             Please select a model or a column to display data.
           </p>
@@ -253,7 +280,7 @@ const ModelSelector: React.FC<SelectorProps> = ({
   onChange,
   maxCount,
 }) => (
-  <div className="flex-grow mr-4 lg:mb-0 mb-2">
+  <div className="flex flex-col mr-4 lg:mb-0 mb-2">
     <MultiSelect
       options={options}
       onValueChange={onChange}
