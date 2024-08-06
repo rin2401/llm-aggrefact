@@ -83,6 +83,7 @@ export default function Leaderboard({ scoresData }: LeaderboardProps) {
   const [sortColumn, setSortColumn] = useState<NumericDataColumn>("Average");
   const [maxNumModelsOptions, setMaxNumModelsOptions] = useState<number>(3);
   const [maxNumColumnsOptions, setMaxNumColumnsOptions] = useState<number>(3);
+  const [hoveredModel, setHoveredModel] = useState<string | null>(null);
 
   const filteredData = useMemo(
     () => scoresData.filter((item) => selectedModels.includes(item.model)),
@@ -225,6 +226,8 @@ export default function Leaderboard({ scoresData }: LeaderboardProps) {
               filteredData={filteredData}
               colorPalette={colorPalette}
               chartFontSize={chartFontSize}
+              hoveredModel={hoveredModel}
+              setHoveredModel={setHoveredModel}
             />
           </CardContent>
         </Card>
@@ -321,6 +324,8 @@ interface RadarChartComponentProps {
   filteredData: ModelData[];
   colorPalette: string[];
   chartFontSize: string;
+  hoveredModel: string | null;
+  setHoveredModel: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
@@ -328,6 +333,8 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
   filteredData,
   colorPalette,
   chartFontSize,
+  hoveredModel,
+  setHoveredModel,
 }) => {
   const getColor = (item: ModelData, index: number) => {
     if (item.color) {
@@ -360,7 +367,7 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
               dataKey={item.model}
               stroke={getColor(item, index)}
               fill={getColor(item, index)}
-              fillOpacity={0.4}
+              fillOpacity={hoveredModel === null || hoveredModel === item.model ? 0.4 : 0}
             />
           ))}
         </RadarChart>
@@ -371,7 +378,9 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
             {filteredData.map((item, index) => (
               <div
                 key={item.model}
-                className="flex items-center mb-2 mr-4 lg:mr-0 flex-shrink-0"
+                className="flex items-center mb-2 mr-4 lg:mr-0 flex-shrink-0 cursor-pointer"
+                onMouseEnter={() => setHoveredModel(item.model)}
+                onMouseLeave={() => setHoveredModel(null)}
               >
                 <div
                   className="w-3 h-3 mr-2 rounded-full"
