@@ -79,6 +79,7 @@ export default function Leaderboard({ scoresData }: LeaderboardProps) {
     "gpt-4o-2024-05-13",
     "Llama-3.1-405B-Instruct",
     "Mistral-Large 2",
+    "MiniCheck-Flan-T5-L"
   ]);
   const [sortColumn, setSortColumn] = useState<NumericDataColumn>("Average");
   const [maxNumModelsOptions, setMaxNumModelsOptions] = useState<number>(3);
@@ -354,11 +355,35 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
 
   const sortedData = useMemo(() => {
     return [...filteredData].sort((a, b) => {
+      const avgA = calculateAverage(a, Object.keys(a) as (keyof ModelData)[]);
+      const avgB = calculateAverage(b, Object.keys(b) as (keyof ModelData)[]);
+      const averageDiff = avgB - avgA;
+      if (Math.abs(averageDiff) < 0.05) {
+        return a.model.localeCompare(b.model);
+      }
+      return averageDiff;
+    });
+  }, [filteredData]);
+
+  const renderOrder = useMemo(() => {
+    return [...sortedData].sort((a, b) => {
+      const avgA = calculateAverage(a, Object.keys(a) as (keyof ModelData)[]);
+      const avgB = calculateAverage(b, Object.keys(b) as (keyof ModelData)[]);
+      const averageDiff = avgA - avgB;
+      if (Math.abs(averageDiff) < 0.05) {
+        return b.model.localeCompare(a.model); // Reverse alphabetical order for rendering
+      }
+      return averageDiff;
+    });
+  }, [sortedData]);
+
+  const hoveredRenderOrder = useMemo(() => {
+    return [...renderOrder].sort((a, b) => {
       if (a.model === hoveredModel) return 1;
       if (b.model === hoveredModel) return -1;
       return 0;
     });
-  }, [filteredData, hoveredModel]);
+  }, [renderOrder, hoveredModel]);
 
   return (
     <div className="w-full h-full flex flex-col lg:flex-row lg:items-stretch items-center">
@@ -377,13 +402,13 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
             axisLine={false}
             tick={false}
           />
-          {sortedData.map((item, index) => (
+          {hoveredRenderOrder.map((item) => (
             <Radar
               key={item.model}
               name={item.model}
               dataKey={item.model}
-              stroke={getColor(item, index)}
-              fill={getColor(item, index)}
+              stroke={getColor(item, sortedData.indexOf(item))}
+              fill={getColor(item, sortedData.indexOf(item))}
               fillOpacity={
                 hoveredModel === null
                   ? 0.4
@@ -410,7 +435,7 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
       <ScrollArea.Root className="flex mt-4">
         <ScrollArea.Viewport className="lg:mt-0 lg:ml-4 lg:max-h-[380px] max-h-[100px] lg:min-w-[200px] w-full items-center">
           <div className="flex flex-col p-0">
-            {filteredData.map((item, index) => (
+            {sortedData.map((item, index) => (
               <div
                 key={item.model}
                 className="flex items-center mb-2 mr-4 lg:mr-0 flex-shrink-0 cursor-pointer"
