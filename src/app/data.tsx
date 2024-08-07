@@ -15,7 +15,7 @@ export const scoresData: ModelData[] = [
     ExpertQA: 58.3,
     LFQA: 80.3,
     RAGTruth: 81.6,
-    color: "#ddd6fe",
+    color: "#6d28d9",
     link: "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/",
   },
   {
@@ -32,7 +32,7 @@ export const scoresData: ModelData[] = [
     ExpertQA: 59.6,
     LFQA: 83.6,
     RAGTruth: 84.3,
-    color: "#6d28d9",
+    color: "#a78bfa",
     link: "https://platform.openai.com/docs/models/gpt-4o",
   },
   {
@@ -49,7 +49,7 @@ export const scoresData: ModelData[] = [
     ExpertQA: 59.2,
     LFQA: 83.1,
     RAGTruth: 85.3,
-    color: "#a78bfa",
+    color: "#ddd6fe",
     link: "https://platform.openai.com/docs/models/gpt-4-turbo-and-gpt-4",
   },
   {
@@ -68,6 +68,23 @@ export const scoresData: ModelData[] = [
     RAGTruth: 75.6,
     color: "#ede9fe",
     link: "https://platform.openai.com/docs/models/gpt-3-5-turbo",
+  },
+  {
+    model: "Claude-3.5 Sonnet",
+    Size: "-",
+    CNN: 67.6,
+    XSum: 75.1,
+    MediaS: 73.4,
+    MeetB: 84.6,
+    Wice: 77.7,
+    REVEAL: 89.1,
+    ClaimVerify: 71.4,
+    FactCheck: 77.8,
+    ExpertQA: 60.9,
+    LFQA: 85.6,
+    RAGTruth: 86.1,
+    color: "#742707",
+    link: "https://www.anthropic.com/news/claude-3-5-sonnet",
   },
   {
     model: "Claude-3 Opus",
@@ -150,7 +167,7 @@ export const scoresData: ModelData[] = [
     ExpertQA: 60.8,
     LFQA: 87.0,
     RAGTruth: 85.9,
-    color: "#db2777",
+    color: "#9d174d",
     link: "https://huggingface.co/mistralai/Mistral-Large-Instruct-2407",
   },
   {
@@ -167,7 +184,7 @@ export const scoresData: ModelData[] = [
     ExpertQA: 60.0,
     LFQA: 81.7,
     RAGTruth: 81.7,
-    color: "#f472b6",
+    color: "#db2777",
     link: "https://mistral.ai/news/mistral-large/",
   },
   {
@@ -184,7 +201,7 @@ export const scoresData: ModelData[] = [
     ExpertQA: 57.4,
     LFQA: 76.5,
     RAGTruth: 78.8,
-    color: "#9d174d",
+    color: "#f472b6",
     link: "https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1",
   },
   {
@@ -382,7 +399,7 @@ export const scoresData: ModelData[] = [
     ExpertQA: 57.4,
     LFQA: 84.4,
     RAGTruth: 77.2,
-    color: "#d9f99d",
+    color: "#ecfccb",
     link: "https://huggingface.co/lytang/MiniCheck-RoBERTa-Large",
   },
   {
@@ -399,7 +416,7 @@ export const scoresData: ModelData[] = [
     ExpertQA: 58.9,
     LFQA: 83.9,
     RAGTruth: 78.8,
-    color: "#ecfccb",
+    color: "#d9f99d",
     link: "https://huggingface.co/lytang/MiniCheck-DeBERTa-v3-Large",
   },
   {

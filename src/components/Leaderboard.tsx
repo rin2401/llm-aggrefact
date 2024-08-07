@@ -74,11 +74,11 @@ export default function Leaderboard({ scoresData }: LeaderboardProps) {
   const [selectedColumns, setSelectedColumns] =
     useState<(keyof ModelData)[]>(allColumns);
   const [selectedModels, setSelectedModels] = useState<string[]>([
-    "Claude-3 Opus",
+    "Bespoke-Minicheck-7B",
+    "Claude-3.5 Sonnet",
     "gpt-4o-2024-05-13",
     "Llama-3.1-405B-Instruct",
     "Mistral-Large 2",
-    "Bespoke-Minicheck-7B",
   ]);
   const [sortColumn, setSortColumn] = useState<NumericDataColumn>("Average");
   const [maxNumModelsOptions, setMaxNumModelsOptions] = useState<number>(3);
@@ -101,9 +101,16 @@ export default function Leaderboard({ scoresData }: LeaderboardProps) {
 
   const sortedData = useMemo(
     () =>
-      [...dataWithAverages].sort(
-        (a, b) => (b[sortColumn] as number) - (a[sortColumn] as number)
-      ),
+      [...dataWithAverages].sort((a, b) => {
+        if (sortColumn === "Average") {
+          const averageDiff = (b[sortColumn] as number) - (a[sortColumn] as number);
+          if (Math.abs(averageDiff) < 0.05) {
+            return a.model.localeCompare(b.model);
+          }
+          return averageDiff;
+        }
+        return (b[sortColumn] as number) - (a[sortColumn] as number);
+      }),
     [dataWithAverages, sortColumn]
   );
 
@@ -343,6 +350,16 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
     return colorPalette[index % colorPalette.length];
   };
 
+  const [isHovering, setIsHovering] = useState(false);
+
+  const sortedData = useMemo(() => {
+    return [...filteredData].sort((a, b) => {
+      if (a.model === hoveredModel) return 1;
+      if (b.model === hoveredModel) return -1;
+      return 0;
+    });
+  }, [filteredData, hoveredModel]);
+
   return (
     <div className="w-full h-full flex flex-col lg:flex-row lg:items-stretch items-center">
       <ResponsiveContainer
@@ -360,7 +377,7 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
             axisLine={false}
             tick={false}
           />
-          {filteredData.map((item, index) => (
+          {sortedData.map((item, index) => (
             <Radar
               key={item.model}
               name={item.model}
@@ -382,8 +399,9 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
                   : 0
               }
               strokeWidth={hoveredModel === item.model ? 3 : 1} // Thicker line for hovered model
+              isAnimationActive={!isHovering}
               style={{
-                filter: hoveredModel === item.model ? 'drop-shadow(0 0 2px rgba(0,0,0,0.5))' : 'none' // Add shadow for more emphasis
+                filter: hoveredModel === item.model ? 'drop-shadow(0 0 2px rgba(0,0,0,0.5))' : 'none', // Add shadow for more emphasis
               }}
             />
           ))}
@@ -396,8 +414,15 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
               <div
                 key={item.model}
                 className="flex items-center mb-2 mr-4 lg:mr-0 flex-shrink-0 cursor-pointer"
-                onMouseEnter={() => setHoveredModel(item.model)}
-                onMouseLeave={() => setHoveredModel(null)}
+                onMouseEnter={() => {
+                  setIsHovering(true);
+                  setHoveredModel(item.model);
+                }}
+                onMouseLeave={() => {
+                  setIsHovering(true);
+                  setHoveredModel(null);
+                }}
+                onTransitionEnd={() => setIsHovering(false)}
               >
                 <div
                   className="w-3 h-3 mr-2 rounded-full"
