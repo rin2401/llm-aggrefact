@@ -1,6 +1,38 @@
 export default function Blog() {
   return (
     <div className="lg:w-[800px] mx-auto p-4 mb-8 space-y-8">
+
+      <div>
+        <h1 className="font-bold text-3xl tracking-tight pr-2">
+        A  Leaderboard for Grounded Factuality ✅
+        </h1>
+      </div>
+
+      <div className="italic space-y-6">
+        Post by <a
+              href="https://www.cs.utexas.edu/~gdurrett/"
+              target="_blank"
+              className="custom-link"
+            >
+              Greg Durrett
+            </a>, XYZ, XYZ. 
+        
+        <br></br><br></br>This leaderboard is maintained by <a
+              href="https://www.tangliyan.com"
+              target="_blank"
+              className="custom-link"
+            >
+              Liyan Tang
+            </a> in collaboration with <a
+              href="http://www.bespokelabs.ai"
+              target="_blank"
+              className="custom-link"
+            >
+              Bespoke Labs
+            </a>. Liyan Tang and Greg Durrett are
+        both affiliated with UT Austin and Bespoke Labs.
+      </div>
+
       <div className="mb-8">
         <figure>
           <img src="/assets/robot-figure.png" className="w-full h-auto" />
@@ -8,9 +40,6 @@ export default function Blog() {
       </div>
 
       <div>
-        <h1 className="font-bold text-3xl tracking-tight pr-2">
-          Introducing the LLM-AggreFact Benchmark ✅
-        </h1>
         <div className="italic text-accented-foreground">
           <br />
           <p>
@@ -25,23 +54,20 @@ export default function Blog() {
             </a>
             , tests this capability.{" "}
             <strong>
-              This leaderboard tracks how well LLMs can fact-check LLM-generated
-              content.
+              We are now releasing the leaderboard, with a new dataset since the release of the original paper, to track how well LLMs can fact-check LLM-generated content.
             </strong>
           </p>
           <br />
           <p>
             <span className="font-bold">✨NEW✨</span> results including
-            Llama-3.1, Mistral 2, and a new model from{" "}
+            Llama-3.1, Mistral 2, Claude-3.5 Sonnet, and a new SOTA model <a href="https://huggingface.co/bespokelabs/Bespoke-Minicheck-7B" target="_blank" className="custom-link">Bespoke-Minicheck-7B</a>{" "} from{" "}
             <a
               href="http://www.bespokelabs.ai"
               target="_blank"
               className="custom-link"
             >
-              Bespoke Labs
+              Bespoke Labs.
             </a>{" "}
-            (fine-tuned on a new version of the data from our MiniCheck paper
-            generated with Llama-3.1).
           </p>
           <p>
             <span className="font-bold">✨NEW✨</span>{" "}
@@ -52,40 +78,48 @@ export default function Blog() {
             >
               Demo
             </a>{" "}
-            of the Bespoke model with real-time inference.
+            of Bespoke-Minicheck-7B with real-time inference.
           </p>
         </div>
       </div>
       <div className="space-y-6">
         <h2 className="font-bold text-2xl tracking-tight">
-          What LLM-AggreFact performance means
+        Grounded Factuality: What LLM-AggreFact performance means
         </h2>
         <div className="space-y-6">
           <p className="leading-normal">
             &quot;Hallucination&quot; is used to refer to many types of errors
-            in LLM responses. One key type of error is when a model fails to
-            accurately reflect information given in its context (aka grounding
-            documents). The MiniCheck paper calls this fact-checking on
-            grounding documents. That is, given a statement, is it supported by
-            a collection of grounding documents?
+            in LLM responses. Here we are interested in grounded factuality: Assuming 
+            that we are given a context paragraph and a statement, we want to check if 
+            that statement is logically supported by the context (aka grounding documents). 
+            One key type of error is when a model fails to accurately reflect information 
+            given in its context and produces an answer with hallucinations. The MiniCheck 
+            paper calls this <em>fact-checking on grounding documents</em>.
           </p>
 
           <div className="my-8 flex justify-center">
             <figure className="w-2/3 max-w-md">
               <img src="/assets/types.png" className="w-full h-auto" />
+              <figcaption className="text-center text-sm mt-2 text-gray-600">
+                Source: from MiniCheck paper.
+              </figcaption>
             </figure>
           </div>
 
           <p className="leading-normal">
-            This is a very fundamental capability across a number of tasks,
-            including retrieval-augmented generation (RAG) and related problems
-            like summarization and document-grounded question answering.
+            This is a very fundamental capability that is needed for retrieval-augmented 
+            generation (RAG) and related problems like summarization and 
+            document-grounded question answering.
+          </p>
+
+          <p className="leading-normal">
             LLM-AggreFact draws together performance across 11 datasets, all
             with the format: (&quot;<i>D</i>&quot;, <i>c</i>, <i>y</i>), where
             &quot;<i>D</i>&quot; is a grounding document set, <i>c</i> is a
             claim, and <i>y</i> is a boolean label to indicate whether <i>c</i>{" "}
             is supported by &quot;<i>D</i>&quot;.
           </p>
+
 
           <p className="leading-normal">
             There are two general approaches to this task. First, LLMs can be
@@ -217,8 +251,6 @@ export default function Blog() {
                 ): Wikipedia claims with citations.
               </li>
             </ul>
-          </div>
-          <p className="leading-normal">
             We have added{" "}
             <a
               href="https://arxiv.org/abs/2401.00396"
@@ -227,8 +259,10 @@ export default function Blog() {
             >
               RAGTruth
             </a>{" "}
-            to the benchmark since the release of the original paper. All of
-            these datasets are labeled for factuality by expert annotators. We
+            to the benchmark since the release of the original paper.
+          </div>
+          <p className="leading-normal">
+            All of these datasets are labeled for factuality by expert annotators. We
             believe this is an up-to-date collection of high-quality labeled
             datasets over strong LLM outputs. The MiniCheck paper further
             discusses the rationale for including or excluding different
@@ -267,11 +301,13 @@ export default function Blog() {
             How do models do?
           </h2>
           <p className="leading-normal">
-            Among LLMs, more recent and larger-scale models typically perform
-            better. Notably, Mistral 2 outperforms the latest GPT-4 variants and
+            <strong>Among LLMs, more recent and larger-scale models typically perform
+            better.</strong> Notably, Mistral-Large 2 and Claude-3.5 Sonnet outperform the latest GPT-4 variants and
             Llama-3.1-70B Instruct is also a strong off-the-shelf open model.
           </p>
           <p className="leading-normal">
+            Bespoke-Minicheck-7B
+            <br></br>
             The MiniCheck models from the paper are state-of-the-art for their
             size. The best performance on the leaderboard comes from a 7B model{" "}
             <a
@@ -288,7 +324,7 @@ export default function Blog() {
             strongest open fact-checking model available for commercial use.
           </p>
           <p className="leading-normal">
-            This model is available as a demo{" "}
+          Bespoke-Minicheck-7B is available as a demo{" "}
             <a
               href="http://playground.bespokelabs.ai/"
               target="_blank"
@@ -313,12 +349,13 @@ export default function Blog() {
             to it, please get in touch with us.
           </p>
           <p className="leading-normal">
-            <b>Caveats:</b> Systems on this leaderboard are benchmarked in a
-            zero-shot fashion. As this is a binary classification task, it is
-            possible to tune the threshold for each dataset. We believe this
-            should be explored in practice. The MiniCheck paper shows that
-            slightly stronger results can be achieved by doing this, but
-            frontier LLMs do not benefit much.
+            <b>Caveats:</b> Systems on this leaderboard are benchmarked in 
+            a zero-shot fashion. As this is a binary classification task, it 
+            is possible to tune the threshold for each dataset. We believe 
+            this should be explored in practice. The MiniCheck paper shows 
+            that slightly stronger results can be achieved by doing this, 
+            but frontier LLMs do not benefit much.
+
           </p>
           <p className="leading-normal">
             Furthermore, note that this task involves detecting hallucinations,
@@ -346,11 +383,6 @@ export default function Blog() {
         </div>
       </div>
 
-      <div className="italic space-y-6">
-        Post by Greg Durrett, XYZ, XYZ. This leaderboard is maintained by Liyan
-        Tang in collaboration with Bespoke Labs. Liyan Tang and Greg Durrett are
-        both affiliated with UT Austin and Bespoke Labs.
-      </div>
     </div>
   );
 }
