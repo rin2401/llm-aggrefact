@@ -37,7 +37,7 @@ export interface ModelData {
   XSum: number;
   MediaS: number;
   MeetB: number;
-  Wice: number;
+  WiCE: number;
   REVEAL: number;
   ClaimVerify: number;
   FactCheck: number;

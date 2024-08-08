@@ -70,8 +70,17 @@ export default function Page() {
           <p className="leading-normal">
             <span className="font-bold">LLM-AggreFact</span> is a fact-checking
             benchmark that aggregates <b>11</b> of the most up-to-date publicly
-            available datasets on factual consistency (i.e., hallucination)
+            available datasets on grounded factuality (i.e., hallucination)
             evaluation.
+          </p>
+
+          <p className="leading-normal">
+            <br></br>Please see our <a
+              href="/blog"
+              className="custom-link"
+            >
+              blog post
+            </a> for a more detailed description.
           </p>
         </div>
         <div className="rounded-lg">
@@ -81,31 +90,33 @@ export default function Page() {
                 <h2>Benchmark Details</h2>
               </AccordionTrigger>
               <AccordionContent>
-                <ul className="list-decimal list-inside">
-                  <li>
-                    <span className="aggrefact">LLM-AggreFact</span> is a
+
+                <p className="leading-normal">
+                  <span className="aggrefact">LLM-AggreFact</span> is a
                     sentence-level evaluation benchmark. It contains examples of
                     human annotated <u>(document, claim, label)</u> tuples. A
                     fact-checking model is expected to predict whether the
                     sentence (which we call a claim) is supported/unsupported
                     (binary) by the document.
-                  </li>
-                  <li>
-                    The benchmark covers both closed-book generation where the
+                </p>
+
+                <p className="leading-normal">
+                    <br></br>The benchmark covers both closed-book generation where the
                     facts are checked post-hoc as well as document-grounded
                     generation (RAG, summarization). Documents come from diverse
                     sources, including Wikipedia paragraphs, interviews, and web
                     text, covering domains such as news, dialogue, science, and
                     healthcare. The claims to be verified are mostly generated
                     from recent generative models.
-                  </li>
-                  <li>
-                    We evaluate the performance of fact-checking models using
+                </p>
+
+                <p className="leading-normal">
+                    <br></br>We evaluate the performance of fact-checking models using
                     balanced accuracy, which takes label imbalance into account.
                     Balanced accuracy ranges from 0 to 1, the higher the better,
                     and a majority class baseline obtains a score of 50%.
-                  </li>
-                </ul>
+                </p>
+
               </AccordionContent>
             </AccordionItem>
           </Accordion>
