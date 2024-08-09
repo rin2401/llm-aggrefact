@@ -8,16 +8,6 @@ export default function Blog() {
         </h1>
       </div>
 
-      <div className="italic space-y-6">
-        Post by <a
-              href="https://www.cs.utexas.edu/~gdurrett/"
-              target="_blank"
-              className="custom-link"
-            >
-              Greg Durrett
-            </a>, XYZ, XYZ. 
-      </div>
-
       <div className="mb-8">
         <figure>
           <img src="/assets/robot-figure.png" className="w-full h-auto" />
