@@ -306,6 +306,28 @@ export default function Blog() {
             </a>
             .
           </p>
+          
+          <p>
+          <strong>Benchmark and Contribute:</strong> Please use <a
+              href="https://github.com/Liyan06/MiniCheck/blob/main/benchmark_evaluation_demo.ipynb"
+              target="_blank"
+              className="custom-link"
+            >
+              this colab
+            </a> to evaluate your model on the LLM-AggreFact benchmark and let us know by opening a PR at the <a
+              href="https://github.com/Liyan06/MiniCheck"
+              target="_blank"
+              className="custom-link"
+            >
+              MiniCheck github repo 
+            </a> or send an email <a
+              href="mailto:company@bespokelabs.ai"
+              className="custom-link"
+            >
+              here
+            </a>.
+
+          </p>
         </div>
       </div>
 
