@@ -321,7 +321,7 @@ export default function Blog() {
             >
               MiniCheck github repo 
             </a> or send an email <a
-              href="mailto:company@bespokelabs.ai"
+              href="mailto:lytang@utexas.edu"
               className="custom-link"
             >
               here

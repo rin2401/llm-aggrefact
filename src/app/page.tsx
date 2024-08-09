@@ -51,7 +51,7 @@ export default function Page() {
             </Link>
             ,{" "}
             <Link
-              href="https://huggingface.co/datasets/lytang/LLM-AggreFact"
+              href="https://huggingface.co/collections/lytang/minicheck-and-llm-aggrefact-661c5d387082ad0b433dec65"
               target="_blank"
               className="inline-flex items-center custom-link text-sm"
             >
