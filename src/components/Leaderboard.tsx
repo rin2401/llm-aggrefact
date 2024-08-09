@@ -74,7 +74,7 @@ export default function Leaderboard({ scoresData }: LeaderboardProps) {
   const [selectedColumns, setSelectedColumns] =
     useState<(keyof ModelData)[]>(allColumns);
   const [selectedModels, setSelectedModels] = useState<string[]>([
-    "Llama3.1-Bespoke-Minicheck-7B",
+    "Bespoke-Minicheck-7B",
     "Claude-3.5 Sonnet",
     "gpt-4o-2024-05-13",
     "Llama-3.1-405B-Instruct",
@@ -106,7 +106,7 @@ export default function Leaderboard({ scoresData }: LeaderboardProps) {
         if (sortColumn === "Average") {
           const averageDiff = (b[sortColumn] as number) - (a[sortColumn] as number);
           if (Math.abs(averageDiff) < 0.05) {
-            return b.model.localeCompare(a.model);
+            return a.model.localeCompare(b.model);
           }
           return averageDiff;
         }
@@ -359,7 +359,7 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
       const avgB = calculateAverage(b, Object.keys(b) as (keyof ModelData)[]);
       const averageDiff = avgB - avgA;
       if (Math.abs(averageDiff) < 0.05) {
-        return b.model.localeCompare(a.model);
+        return a.model.localeCompare(b.model);
       }
       return averageDiff;
     });
@@ -371,7 +371,7 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
       const avgB = calculateAverage(b, Object.keys(b) as (keyof ModelData)[]);
       const averageDiff = avgA - avgB;
       if (Math.abs(averageDiff) < 0.05) {
-        return a.model.localeCompare(b.model);
+        return b.model.localeCompare(a.model);
       }
       return averageDiff;
     });
@@ -488,7 +488,7 @@ const TableComponent: React.FC<TableComponentProps> = ({
   <Table className="table-fixed">
     <TableHeader>
       <TableRow>
-        <TableHead className="w-40 px-2">Model</TableHead>
+        <TableHead className="w-44 px-2">Model</TableHead>
         <TableHead className="w-14 text-center">Size</TableHead>
         <TableHead
           className="bg-accent text-accent-foreground cursor-pointer w-14 break-words"

@@ -36,7 +36,7 @@ export default function Blog() {
           <br />
           <p>
             <span className="font-bold">✨NEW✨</span> results including
-            Llama-3.1, Mistral 2, Claude-3.5 Sonnet, and a new SOTA model <a href="https://huggingface.co/bespokelabs/Llama3.1-Bespoke-Minicheck-7B" target="_blank" className="custom-link">Llama3.1-Bespoke-Minicheck-7B</a>{" "} from{" "}
+            Llama-3.1, Mistral 2, Claude-3.5 Sonnet, and a new SOTA model <a href="https://huggingface.co/bespokelabs/Bespoke-Minicheck-7B" target="_blank" className="custom-link">Bespoke-Minicheck-7B</a>{" "} from{" "}
             <a
               href="http://www.bespokelabs.ai"
               target="_blank"
@@ -54,7 +54,7 @@ export default function Blog() {
             >
               Demo
             </a>{" "}
-            of Llama3.1-Bespoke-Minicheck-7B with real-time inference.
+            of Bespoke-Minicheck-7B with real-time inference.
           </p>
         </div>
       </div>
@@ -281,22 +281,22 @@ export default function Blog() {
             Llama-3.1-70B Instruct is also a strong off-the-shelf open model.
           </p>
           <p className="leading-normal">
-            <strong>Llama3.1-Bespoke-Minicheck-7B:</strong> The best performance on 
+            <strong>Bespoke-Minicheck-7B:</strong> The best performance on 
             our leaderboard comes from a 7B model that was created using a 
             proprietary data curation process from Bespoke Labs. In contrast 
             to other MiniCheck models in the paper, <a
-              href="https://huggingface.co/bespokelabs/Llama3.1-Bespoke-Minicheck-7B"
+              href="https://huggingface.co/bespokelabs/Bespoke-Minicheck-7B"
               target="_blank"
               className="custom-link"
             >
-              Llama3.1-Bespoke-Minicheck-7B
+              Bespoke-Minicheck-7B
             </a>{" "} was trained using synthetic data from Llama-3.1-405B which 
             is the strongest open model available for commercial use. Surprisingly, 
             it outperforms much bigger models demonstrating that the data curation 
             process is the key for small model performance.
           </p>
           <p className="leading-normal">
-          Llama3.1-Bespoke-Minicheck-7B is available as a demo{" "}
+          Bespoke-Minicheck-7B is available as a demo{" "}
             <a
               href="http://playground.bespokelabs.ai/"
               target="_blank"
