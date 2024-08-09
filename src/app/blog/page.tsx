@@ -117,7 +117,7 @@ export default function Blog() {
 
         <div className="space-y-6">
           <h2 className="font-bold text-2xl tracking-tight">
-            Datasets included in LLM-AggreFact Benchmark
+            Datasets included in the LLM-AggreFact Benchmark
           </h2>
           <div className="leading-normal">
             The datasets included are drawn from: <br />
