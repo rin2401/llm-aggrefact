@@ -79,7 +79,8 @@ export default function Leaderboard({ scoresData }: LeaderboardProps) {
     "gpt-4o-2024-05-13",
     "Llama-3.1-405B-Instruct",
     "Mistral-Large 2",
-    "MiniCheck-Flan-T5-L"
+    "MiniCheck-Flan-T5-L",
+    "Qwen2.5-72B-Instruct"
   ]);
   const [sortColumn, setSortColumn] = useState<NumericDataColumn>("Average");
   const [maxNumModelsOptions, setMaxNumModelsOptions] = useState<number>(3);
