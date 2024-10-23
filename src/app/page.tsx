@@ -223,13 +223,13 @@ export default function Page() {
             </AccordionTrigger>
             <AccordionContent>
               <pre className="text-sm text-gray-600 font-mono whitespace-pre-wrap">
-                {`@misc{tang2024minicheck,
-      title={MiniCheck: Efficient Fact-Checking of LLMs on Grounding Documents}, 
-      author={Liyan Tang and Philippe Laban and Greg Durrett},
-      year={2024},
-      eprint={2404.10774},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
+                {`@InProceedings{tang-etal-2024-minicheck,
+  title = {MiniCheck: Efficient Fact-Checking of LLMs on Grounding Documents},
+  author = {Liyan Tang and Philippe Laban and Greg Durrett},
+  booktitle = {Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing},
+  year = {2024},
+  publisher = {Association for Computational Linguistics},
+  url = {https://arxiv.org/pdf/2404.10774}
 }`}
               </pre>
             </AccordionContent>
