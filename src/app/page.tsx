@@ -76,7 +76,7 @@ export default function Page() {
 
           <p className="leading-normal">
             <br></br>Please see our <a
-              href="/blog"
+              href="/llm-aggrefact/blog"
               className="custom-link"
             >
               blog post
