@@ -42,7 +42,7 @@ export default function Page() {
             >
               arXiv
               <Image
-                src="/arxiv-logomark-small.svg"
+                src="/llm-aggrefact/arxiv-logomark-small.svg"
                 className="mx-1"
                 alt="arxiv"
                 width="10"
@@ -57,7 +57,7 @@ export default function Page() {
             >
               HuggingFace
               <Image
-                src="/hf.svg"
+                src="/llm-aggrefact/hf.svg"
                 className="mx-1"
                 alt="hf"
                 width="25"

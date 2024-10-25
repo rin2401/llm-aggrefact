@@ -28,7 +28,7 @@ export default function RootLayout({
             gtag('config', 'G-DMWFXSYD87');
           `}
         </Script>
-        <link rel="icon" href="/site-logo.svg" sizes="any" />
+        <link rel="icon" href="/llm-aggrefact/site-logo.svg" sizes="any" />
       </head>
       <body className="{inter.className}">
         <NavBar />

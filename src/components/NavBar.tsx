@@ -58,7 +58,7 @@ export const NavBar = () => {
         <div className="flex flex-row mx-4 items-center">
           <div className="w-[20px] h-[20px] relative mr-1">
             <Image
-              src="/site-logo.svg"
+              src="/llm-aggrefact/site-logo.svg"
               alt="Green checkmark for logo"
               fill
               className="object-contain"
