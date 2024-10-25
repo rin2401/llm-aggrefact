@@ -10,7 +10,7 @@ export default function Blog() {
 
       <div className="mb-8">
         <figure>
-          <img src="/assets/robot-figure.png" className="w-full h-auto" />
+          <img src="/llm-aggrefact/assets/robot-figure.png" className="w-full h-auto" />
         </figure>
       </div>
 
@@ -75,7 +75,7 @@ export default function Blog() {
 
           <div className="my-8 flex justify-center">
             <figure className="w-2/3 max-w-md">
-              <img src="/assets/types.png" className="w-full h-auto" />
+              <img src="/llm-aggrefact/assets/types.png" className="w-full h-auto" />
               <figcaption className="text-center text-sm mt-2 text-gray-600">
                 Source: from MiniCheck paper.
               </figcaption>

@@ -133,7 +133,7 @@ export default function Page() {
               <div className="grid grid-cols-4 auto-rows-auto gap-x-4 gap-y-8">
                 <div className="flex flex-col items-center">
                   <Image
-                    src="/assets/Liyan.png"
+                    src="/llm-aggrefact/assets/Liyan.png"
                     alt="Liyan Tang"
                     width={128}
                     height={128}
@@ -154,7 +154,7 @@ export default function Page() {
 
                 <div className="flex flex-col items-center">
                   <Image
-                    src="/assets/phil20.jpeg"
+                    src="/llm-aggrefact/assets/phil20.jpeg"
                     alt="Philippe Leban"
                     width={128}
                     height={128}
@@ -175,7 +175,7 @@ export default function Page() {
 
                 <div className="flex flex-col items-center">
                   <Image
-                    src="/assets/greg.png"
+                    src="/llm-aggrefact/assets/greg.png"
                     alt="Greg Durrett"
                     width={128}
                     height={128}
@@ -196,7 +196,7 @@ export default function Page() {
 
                 <div className="flex flex-col items-center">
                   <Image
-                    src="/assets/trung.JPG"
+                    src="/llm-aggrefact/assets/trung.JPG"
                     alt="Trung Vu"
                     width={128}
                     height={128}
